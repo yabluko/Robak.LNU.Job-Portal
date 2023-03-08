@@ -1,23 +1,15 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
+User = get_user_model()
 
-class Users(models.Model):
+class Account(models.Model):
+    username = models.TextField()
     first_name = models.TextField()
     last_name = models.TextField()
     email = models.TextField()
-    age = models.IntegerField()
-    location = models.CharField(max_length=100)
-    job_title = models.TextField()
+    password = models.TextField()
 
+    def __str__(self):
+        return self.user.username
 
-class Job(models.Model):
-    users_id = models.ForeignKey(Users, on_delete=models.CASCADE)
-    company_name = models.TextField()
-    job_title = models.TextField()
-    job_description = models.TextField()
-    job_requirements = models.TextField()
-
-class Posts(models.Model):
-    users_id = models.ForeignKey(Users, on_delete=models.CASCADE)
-    content = models.TextField()
-    date_created = models.DateField()
