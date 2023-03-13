@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'clonelinkedin'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4C9C936643DF4A6EB45D19F62BEC5F8C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_91A857E110C14A029037824F20266CA1 }}
