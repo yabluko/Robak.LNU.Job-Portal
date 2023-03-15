@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'linkedinclone'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AC7CAE94B38C416299477A9E847CD5C2 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_13D8307F446B4E14B0518DB7DCEA708A }}
