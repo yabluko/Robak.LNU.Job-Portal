@@ -8,5 +8,6 @@ This is django project clone of LinkedIn.In this web-application you can create 
 
 
 ✅ - Done
+
 ⏳ - In progress 
 ❌ -  Not Done 
