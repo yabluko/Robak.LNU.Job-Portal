@@ -1,4 +1,5 @@
-# Robak.LNU.Job-Portal
+# LinkedIn Clone
 
 
-Welcome , this is web-application clone of LinkedIn
+
+This is django project clone of LinkedIn
