@@ -16,7 +16,9 @@ This is django project clone of LinkedIn.In this web-application you can create 
 # Azure
 
 Created SqlDatabase on Azure - ✅
+
 Created AppService on Azure - ✅
+
 Deploying project on Azure - ⏳
 
 
