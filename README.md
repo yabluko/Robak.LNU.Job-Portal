@@ -9,7 +9,7 @@ This is django project clone of LinkedIn.In this web-application you can create 
 
 ✅ - Done
 
-⏳ - In processing
+⏳ - In progress
 
 ❌ -  Not Done 
 
@@ -29,6 +29,9 @@ Creating registration page - ⏳
 
 Saving data to database - ⏳
 
+Creating login page - ❌
+
+Creating home page - ❌
 
 
 
