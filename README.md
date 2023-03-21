@@ -21,4 +21,16 @@ Creating AppService on Azure - ✅
 
 Deploying project on Azure - ⏳
 
+Creating Application Insights - ❌
+
+# Project 
+
+Creating registration page - ⏳
+
+Saving data to database - ⏳
+
+
+
+
+
 
