@@ -1,17 +1,33 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- {% load static %}
-    <link href="{% static 'registrationapp/css/style.css'%}" rel="stylesheet"> -->
+    <link href="{% static 'registrationapp/style.css' %}"  rel="stylesheet">
     <title>Document</title>
-</head>
+  </head>
 <body>
-<div class="example-block">
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quas sit illo alias praesentium quos cupiditate dolorem reiciendis voluptatum dolore! Assumenda, eaque? Soluta adipisci ipsa, illo vero beatae obcaecati quam?
-</div>
+  <form class="registration" action="#" method="POST">
+    {% csrf_token %}
+
+    <label for="username">Username</label>
+    <input type="text" class="username" name="username" >
+  
+    <label for="firstname">First Name</label>
+    <input type="text" class="firstname" name="firstname">
+
+    <label for="lastname">Last Name</label>
+    <input type="text" class="lastname" name="lastname">
+  
+    <label for="email">Your email</label>
+    <input type="text" class="email" name="email">
+
+    <label for="password">Password:</label>
+    <input type="password" class="password" name="password">
+    <button type="submit"  class="submit1">Submit</button>
+  </form>
 
 </body>
 </html>

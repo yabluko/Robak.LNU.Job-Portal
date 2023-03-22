@@ -3,12 +3,13 @@ from django.shortcuts import render , redirect
 from core.models import Account
 # Create your views here.
 
+
 def signup(request):
     if request.method == 'POST':
-        email = request.POST['email']
+        username = request.POST['username']
         firstname = request.POST['firstname']
         lastname = request.POST['lastname']
-        username = request.POST['username']
+        email = request.POST['email']
         password = request.POST['password']
 
         # user = User.objects.create_user(first_name=firstname, last_name=lastname, username=username, password=password)
