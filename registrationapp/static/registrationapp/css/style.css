@@ -1,35 +1,39 @@
+*{
+    margin: 0px;
+    list-style-type: none;
+    text-decoration: none;
+}
 body{
     font-family: 'AvenirNext', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 20px;
-    padding: 30px;
-    background-color:rgb(223, 222, 222);
+    background-color: rgb(237, 237, 237);
     
 }
-a{
-    text-decoration: none;
-}
 
-li{
-    list-style-type: none;
+i{
+    color: black;
 }
-
 .wrapper{
-    min-height: 100%;
-    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    overflow: hidden; 
 }
 
 .header{
     width: 100%;
-    left: 0;
-    top: 0;
+    left: 0px;
+    top: 0px; 
     z-index: 50;
+    border: 1px solid rgb(186, 190, 197);
+    position: fixed;
+    background-color: rgb(255, 255, 255);
 }
 
 .header__container{
-    max-width: 1046px;
+    width: 1120px;
     margin: 0 auto;
     display: flex;
-    min-height: 104px;
+    height: 52px;
     align-items: center;
 }
 
@@ -55,17 +59,12 @@ li{
     color:black;
 }
 
-/* .header__menu{
-    display: flex;
-    flex-direction: row;
-} */
-
-
 .registration{
     width: 100%;
-    height:800px;
-    margin : 20 auto;
+    height: 800px;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .registration__container{
@@ -78,14 +77,17 @@ li{
     background-color: rgb(255, 255, 255);
     border: 1px solid rgb(186, 190, 197);
     border-radius: 5px;
+
 }
 
 .registration__content__title{
     text-align: center;
+    padding:10px;
 }
 
 .registration__content__text{
     text-align: center;
+    padding: 10px;
 }
 
 .registration__form__input
@@ -122,4 +124,52 @@ li{
 
 .registration__form__button:hover{
     background-color:#0e68a3;
+}
+
+.footer{
+    background-color: rgb(255, 255, 255);
+    height: 160px;
+}
+
+.footer__container{
+    width: 402px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.footer__content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.footer__menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.footer__title{
+    text-align: center;
+    margin: 10px;
+}
+
+
+.footer__text{
+    text-align: center;
+    margin: 10px;
+}
+
+.footer__list{
+    display: flex;
+    flex-direction: row;
+    margin-right: 47px;
+}
+
+.footer__item{
+    margin:10px;
 }
