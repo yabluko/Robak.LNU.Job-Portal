@@ -20,5 +20,5 @@ def signup(request):
     
     return render(request, 'registrationapp/registration.html')
 
-def login(request):
-    return render(request, 'registrationapp/login.html')
+# def login(request):
+#     return render(request, 'registrationapp/login.html')

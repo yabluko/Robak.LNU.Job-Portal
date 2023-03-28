@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/b2ab1221-5ca8-4a97-a3fe-9f105ce0b9f3/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/linkedinclone",
+    "appService.deploySubpath": "."
+}

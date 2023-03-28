@@ -5,29 +5,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{% static 'registrationapp/style.css' %}"  rel="stylesheet">
-    <title>Document</title>
+    <link href="{% static 'registrationapp/css/style.css' %}"  rel="stylesheet">
+    <title>LinkedinClone</title>
   </head>
 <body>
-  <form class="registration" action="#" method="POST">
-    {% csrf_token %}
+<div class="wrapper">
+  <header class="header">
+    <div class="header__container">
+      <a href="#" class="header__logo">Logo</a>
+      <nav class="header__menu">
+        <ul class="menu__list">
+            <li class="menu__item">
+              <a href="{% url 'core' %}" class="menu__link">Home</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">Vacancies</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">Profile</a>
+            </li>
 
-    <label for="username">Username</label>
-    <input type="text" class="username" name="username" >
+        </ul>
+      </nav>
+    </div>
+
+  </header>
+
+<div class="registration">
+    <div class="registration__container">  
+      <div class="registration__content">
+      
+        <div class="registration__content__title">
+          <h3>Sign up</h1>
+        </div>
   
-    <label for="firstname">First Name</label>
-    <input type="text" class="firstname" name="firstname">
-
-    <label for="lastname">Last Name</label>
-    <input type="text" class="lastname" name="lastname">
+        <div class="registration__content__text">
+          <p>Create a Linkedin account</p>
+        </div>
+          
+      </div>
+        
+      <form class="registration__form" action="#" method="POST">
+          {% csrf_token %}
+            <label for="username" class="registration__form__label">Username</label>
+            <input type="text" class="registration__form__input" name="username" >
+            
+            <label for="email" class="registration__form__label" >Email</label>
+            <input type="text" class="registration__form__input" name="email">
+            
+            <label for="password" class="registration__form__label">Password</label>
+            <input type="password" class="registration__form__input" name="password">
+            
+            <button type="submit"  class="registration__form__button">Create account</button>
+          
   
-    <label for="email">Your email</label>
-    <input type="text" class="email" name="email">
-
-    <label for="password">Password:</label>
-    <input type="password" class="password" name="password">
-    <button type="submit"  class="submit1">Submit</button>
-  </form>
+      </form>
+    <!-- <footer>
+      <div class="footer-text">
+        hello
+      </div>
+    </footer> -->
+  
+    </div>
+</div> 
 
 </body>
 </html>
