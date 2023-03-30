@@ -18,7 +18,7 @@ def signup(request):
         new_profile = Account.objects.create(first_name=firstname, last_name=lastname, email=email, username=username, password=password)
         return redirect('login/')
     
-    return render(request, 'registrationapp/registration.html')
+    return render(request, './registration-index.html')
 
 # def login(request):
 #     return render(request, 'registrationapp/login.html')
