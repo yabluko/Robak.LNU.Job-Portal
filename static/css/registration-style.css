@@ -1,9 +1,9 @@
 *{
-    margin: 0px;
     list-style-type: none;
     text-decoration: none;
 }
 body{
+    margin: 0px;
     font-family: 'AvenirNext', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 20px;
     background-color: rgb(237, 237, 237);
@@ -13,12 +13,12 @@ body{
 i{
     color: black;
 }
-.wrapper{ 
+/* .wrapper{ 
     position: relative;
     z-index: 1;
-    overflow: hidden; 
-}
-
+    overflow: hidden;  
+} 
+*/
 .header{
     width: 100%;
     left: 0px;
@@ -27,26 +27,36 @@ i{
     border: 1px solid rgb(186, 190, 197);
     position: fixed;
     background-color: rgb(255, 255, 255);
+    height: 100px;
 }
 
 .header__container{
     width: 1120px;
+    height: 100%;
     margin: 0 auto;
     display: flex;
-    height: 52px;
     align-items: center;
 }
 
-.header__menu{
-    margin: 0px 0px 0px 400px ;
+.header__nav{
+    /* margin: 0px 0px 0px 100px ; */
+    min-height: 52px;
+    width: 500px;
 }
 
 .header__logo{
     color: inherit;
 }
 
+.logoimg{
+    display: block;
+    width: 34.17px;
+    height: 34.17px; 
+}
+
 .menu__list{
     display: flex;
+    justify-content: space-around;
 }
 
 .menu__link{
@@ -55,9 +65,54 @@ i{
 }
 
 .menu__item{
-    margin: 40px;
     color:black;
+    display: flex;
+    flex-direction: column;
 }
+
+.menu__item__span{
+    font-size: 14px;
+    margin:5px;
+}
+
+.logo__nav{
+    display: flex;
+    justify-content: center;
+
+}
+
+.logo__nav__text{
+    width: 34.17px;
+    height: 34.17px; 
+}
+
+
+.header__input__container {
+    position: relative;
+    margin-left: 10px;
+}
+
+.header__input{
+    width: 280px;
+    height: 34px;
+    background-color: #eef3f8;
+    border: none;
+    border-radius: 5px;
+    box-decoration-break: none;
+}
+
+.header__input__container input[type="text"] {
+    padding-right: 30px;
+}
+  
+.header__input__container i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+  
+
 
 .registration{
     width: 100%;
@@ -68,8 +123,8 @@ i{
 }
 
 .registration__container{
-    max-width: 1046px;
-    max-height: 500px;
+    /* max-width: 1046px; */
+    height: 510px;
     width: 400px;
     margin: 0 auto;
     display: flex;
@@ -82,12 +137,11 @@ i{
 
 .registration__content__title{
     text-align: center;
-    padding:10px;
 }
 
 .registration__content__text{
     text-align: center;
-    padding: 10px;
+    padding: 5px;
 }
 
 .registration__form__input
@@ -112,7 +166,7 @@ i{
 
 .registration__form__button{
     display: block;
-    margin: 50px auto;
+    margin: 20px auto;
     width: 300px;
     height: 44px;
     justify-content: center;
@@ -128,7 +182,11 @@ i{
 
 .footer{
     background-color: rgb(255, 255, 255);
-    height: 160px;
+    height: 200px;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    position: static;
 }
 
 .footer__container{
@@ -137,6 +195,7 @@ i{
     display: flex;
     justify-content: center;
     flex-direction: column;
+    
 }
 
 
@@ -150,18 +209,18 @@ i{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 10px;
 }
 
 
 .footer__title{
     text-align: center;
-    margin: 10px;
+    /* margin: 10px; */
 }
 
 
 .footer__text{
     text-align: center;
-    margin: 10px;
 }
 
 .footer__list{
