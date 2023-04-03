@@ -13,7 +13,7 @@ To download this django project you should do next steps:
 
 2. Install Django using the package manager pip by executing the following command in the command line:```pip3 install django```.
 
-3. Clone my repository by command ```git clone ```
+3. Clone my repository by command ```git clone https://github.com/yabluko/Robak.LNU.Job-Portal.git```
 
 4. Change the directory to the project directory: ```cd project_name```.
 
