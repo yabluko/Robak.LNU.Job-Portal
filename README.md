@@ -5,13 +5,13 @@
 This is django project clone of LinkedIn.In this web-application you can create your profile with your skills ,experience of job, preferences for a job.
 
 
-# Installation
+# Installation and Configuration
 
 To download this django project you should do next steps:
 
 1. Install Python on your computer (if it is not already installed).
 
-2. Install Django using the package manager pip by executing the following command in the command line: pip install django.
+2. Install Django using the package manager pip by executing the following command in the command line:``` pip install django```.
 
 3. Change the directory to the project directory: cd project_name.
 
