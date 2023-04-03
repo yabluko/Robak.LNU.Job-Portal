@@ -17,7 +17,7 @@ To download this django project you should do next steps:
 
 4. Start the Django server by executing the following command: ```python3 manage.py runserver```.
 
-5. Open your web browser and navigate to http://127.0.0.1:8000/. You should see the default Django page.
+5. Open your web browser and navigate to http://127.0.0.1:8000/. You should see the pages of Django project.
 
 # Decomposition of Tasks 📝:
 
