@@ -15,7 +15,7 @@ To download this django project you should do next steps:
 
 3. Clone my repository by command ```git clone https://github.com/yabluko/Robak.LNU.Job-Portal.git```
 
-4. Change the directory to the project directory: ```cd project_name```.
+4. Change the directory to the project directory: ```cd job_portal```.
 
 5. Start the Django server by executing the following command: ```python3 manage.py runserver```.
 
