@@ -1,16 +1,59 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="{% static 'css/core-style.css' %}"  rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="/img/png" href="/static/img/linkedin.png">
 </head> 
+
 <body>
-        <h1>
-            Home page
-        </h1>
+<header class="header">
+    <div class="header__container">
+            <a href="#">
+                <img src="/static/img/LinkedIn_Logo.svg" alt="photo" class="logo__photo">
+            </a>
+        
+        <div class="header__buttons">
+            <div class="header__button__join">
+
+                <a href="#" class="header__button__href">Join now</a>
+            </div>
+            <div class="header__button__sign">
+
+                <a href="#" class="header__button__href">Sign in </a>
+            </div>
+        </div>    
+    </div>
+</header>
+
+<main class="main">
+    <div class="main__container">
+        <div class="main__container__content">
+            <div class="main__container__title">
+                <h1>Welcome to your professional community </h1>
+            </div>
+            
+            <div class="header__button__google">
+                <a href="#" class="header__button__href2">
+                     Sign with Google</a>
+            </div>
+        </div>
+
+        <div class="main__container__image">
+            <div class="main__container__hero__image">
+
+                <img src="/static/img/logo_hero.svg" alt="photo_main" class="logo__hero">
+            </div>
+        </div>
+    </div>
+
+</main>
+
 </body>
 </html>
