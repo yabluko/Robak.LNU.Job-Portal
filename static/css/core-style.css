@@ -9,9 +9,11 @@
 body{
     font-family: 'AvenirNext', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 20px;
-    height: 900px;
 }
 
+p{
+    font-size: 15px;
+}
 
 .header{
     width: 100%;
@@ -47,23 +49,33 @@ body{
     border: 1px solid #0a66c2;
     color: #0a66c2;
 }
+.header__button__href:hover{
+    background-color: #0073b138;
+}
 
 .header__button__google{
     margin-top: 30px;
 }
 
-.header__button__href2{
-    padding: 12px; 
-    font-size: 16px;
+.main__button__href{
+    display: flex;
+    justify-content: center;
+    width: 320px;
+    padding: 12px;
+    align-items: center;
+    font-size: 20px;
     font-weight: 600;
     border-radius: 24px;
     border: 1px solid black;
     color: black;
 }
 
-.header__button__href:hover{
-    background-color: #0073b138;
+.main__button__href:hover{
+    background-color: rgba(224, 224, 224, 0.577);
 }
+
+
+
 
 .logo__photo{
     width: 135px;
@@ -73,6 +85,11 @@ body{
 .main{
     width: 100%;
     /* height: 800px; */
+}
+
+.main__button__google{
+    margin-top: 15px;
+    height: 60px;
 }
 
 .main__container{
@@ -86,7 +103,7 @@ body{
 
 .main__container__content{
     color: #0a66c2;
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 .main__container__image{
@@ -98,7 +115,7 @@ body{
 
 .main__container__hero__image{
     max-height: 560px;
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 
@@ -108,7 +125,28 @@ body{
 
 }
 
+.main__google__img{
+    display: flex;
+    align-items: center;
+}
+
+.main__google__text{
+    margin-left: 25px;
+}
+
+.logo__google{
+    width: 30px;
+    height: 25px;
+    /* padding-top: 5px; */
+}
+
 .icon{
     width: 100px;
     height: 50px;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
 }
