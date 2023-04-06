@@ -182,7 +182,7 @@ i{
 
 .footer{
     background-color: rgb(255, 255, 255);
-    height: 200px;
+    height: 100px;
     width: 100%;
     bottom: 0px;
     left: 0px;
@@ -221,6 +221,7 @@ i{
 
 .footer__text{
     text-align: center;
+    margin-top: 10px;
 }
 
 .footer__list{
