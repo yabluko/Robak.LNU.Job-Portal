@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{% static 'css/registration-style.css' %}"  rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="/img/png" href="/static/img/linkedin.png">
-    <title>LinkedinClone</title>
+    <link rel="icon" type="/img/png" href="/static/img/linkedin_logo.png">
+    <title>SignUp</title>
   </head>
 <body>
   <header class="header">
@@ -23,7 +23,7 @@
       
       <nav class="header__nav">
         <ul class="menu__list">
-          <a href="#"><li class="menu__item"><div class="logo__nav"><img src="/static/img/home.png" alt="logo1" class="logo__nav__text"></div><span class="menu__item__span">Home</span></li></a>
+          <a href="{% url 'core' %}"><li class="menu__item"><div class="logo__nav"><img src="/static/img/home.png" alt="logo1" class="logo__nav__text"></div><span class="menu__item__span">Home</span></li></a>
           <a href="#"><li class="menu__item"><div class="logo__nav"><img src="/static/img/briefcase.png" alt="logo2" class="logo__nav__text"></div><span class="menu__item__span">Vacancies</span></li></a>
           <a href="#"><li class="menu__item"><div class="logo__nav"><img src="/static/img/profile.png" alt="logo3" class="logo__nav__text"></div><span class="menu__item__span">Profile</span></li>
           </a>

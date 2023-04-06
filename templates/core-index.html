@@ -6,10 +6,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
     <link href="{% static 'css/core-style.css' %}"  rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="/img/png" href="/static/img/linkedin.png">
+    <link rel="icon" type="/img/png" href="/static/img/linkedin_logo.png">
 </head> 
 
 <body>
@@ -26,7 +26,7 @@
             </div>
             <div class="header__button__sign">
 
-                <a href="#" class="header__button__href">Sign in </a>
+                <a href="{% url 'signup' %}" class="header__button__href">Sign in </a>
             </div>
         </div>    
     </div>
