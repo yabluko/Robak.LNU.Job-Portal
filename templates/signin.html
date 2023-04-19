@@ -13,7 +13,7 @@
 <body>
   <header class="header">
     <div class="header__container">
-        <a href="#">
+        <a href="{% url 'core' %}">
           <img src="/static/img/logo.png" alt="logotype" class="logoimg">
         </a>
         <div class="header__input__container">
@@ -23,7 +23,7 @@
       
       <nav class="header__nav">
         <ul class="menu__list">
-          <a href="{% url 'core' %}"><li class="menu__item"><div class="logo__nav"><img src="/static/img/home.png" alt="logo1" class="logo__nav__text"></div><span class="menu__item__span">Home</span></li></a>
+          <a href="#"><li class="menu__item"><div class="logo__nav"><img src="/static/img/home.png" alt="logo1" class="logo__nav__text"></div><span class="menu__item__span">Home</span></li></a>
           <a href="#"><li class="menu__item"><div class="logo__nav"><img src="/static/img/briefcase.png" alt="logo2" class="logo__nav__text"></div><span class="menu__item__span">Vacancies</span></li></a>
           <a href="#"><li class="menu__item"><div class="logo__nav"><img src="/static/img/profile.png" alt="logo3" class="logo__nav__text"></div><span class="menu__item__span">Profile</span></li>
           </a>
@@ -34,7 +34,7 @@
   </header>
 
 <main>
-  <div class="registration">
+  <!-- <div class="registration">
     <div class="registration__container">  
       <div class="registration__content">
       
@@ -46,9 +46,9 @@
           <p>Create a Linkedin account</p>
         </div>
           
-      </div>
+      </div> -->
         
-      <form class="registration__form" action="#" method="POST">
+      <!-- <form class="registration__form" action="#" method="POST">
           {% csrf_token %}
             <label for="username" class="registration__form__label">Username</label>
             <input type="text" class="registration__form__input" name="username" placeholder="Your username">
@@ -62,23 +62,28 @@
             <button type="submit"  class="registration__form__button">Create account</button>
           
   
-      </form>
-
+      </form> -->
+<br>
+<br>
+<br>
+<br>
+<br>
+      <h1>Hello you are sign in </h1>
       
-  </div>
+  <!-- </div> -->
 
 </main>
 
 
-<footer class="footer">
+<!-- <footer class="footer">
   <div class="footer__container">
     <div class="footer__content">  
        <div class="footer__title">
           <h3>Created by Yurii Robak</h3>
       </div>
       <div class="footer__text">
-        <!-- <p>Follow me</p> -->
-        Follow me
+         <p>Follow me</p> -->
+        <!-- Follow me
       </div>
       </div> 
       <div class="footer__menu">
@@ -90,7 +95,7 @@
       </div>
 
   </div>
-</footer>
+</footer> --> 
 
 </body>
 </html>

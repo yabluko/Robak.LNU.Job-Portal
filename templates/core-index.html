@@ -15,7 +15,7 @@
 <body>
 <header class="header">
     <div class="header__container">
-            <a href="#">
+            <a href="{% url 'core' %}">
                 <img src="/static/img/LinkedIn_Logo.svg" alt="photo" class="logo__photo">
             </a>
         
@@ -35,8 +35,33 @@
 <main class="main">
     <div class="main__container">
         <div class="main__container__content">
+
             <div class="main__container__title">
                 <h1>Welcome to your professional community </h1>
+            </div>
+            {% if submitted %}
+                Your account was submitted
+            {% else %}
+
+            <form action="" class="registration__form" method="POST">
+                {% csrf_token %}
+                <label for="" class="registration__form__label">Email Address</label>
+                <input type="text" class="main__container__input" placeholder="Your email address">
+                <label for="" class="registration__form__label">Password</label>
+                <input type="password" class="main__container__input" placeholder="Your password">
+            </form> 
+
+
+            {% endif %}
+
+            <!-- <div class="main__singin__button"> -->
+
+                <button type="submit"  class="registration__form__button">Sign in</button>
+
+
+            <!-- </div> -->
+            <div class="separator"> 
+               or
             </div>
             
             <div class="main__button__google">
@@ -59,7 +84,7 @@
 </main>
 
 <footer class="footer">
-    <p>© 2023 Yurii Robak</p>
+    <p>Yurii Robak© 2023</p>
 </footer>
 
 </body>
