@@ -1,30 +1,25 @@
-from django.shortcuts import render
-from .forms import UserForm
-from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .models import Profile
 # Create your views here.
 
-
+def home(request):
+    return render(request, 'core-index.html')
 
 
 def signin(request):
-    
-    # submitted = False
-    # if request.method == 'POST':
-    #     ...
-
     return render(request, 'signin.html')
 
 
 def signup(request):
-    submitted = False
-    if request.method == 'POST':
-        form = UserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/registration/signup?submitted=True')
-    else:
-        form = UserForm
-        if 'submitted' in request.GET:
-            submitted = True
+    return render(request, 'signup.html')
 
-    return render(request, 'signup.html', {'submitted' : submitted})
+
+def profile_list(request):
+    if request.user.is_authenticated:
+        profiles = Profile.objects.exclude(user=request.user) # виключити де user = request.user
+        return render(request, 'profile_list.html', {'profiles': profiles})
+    else:
+        messages.success(request, ("You must be log in to view this page"))
+        return redirect('home')
+ 

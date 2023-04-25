@@ -13,12 +13,7 @@ body{
 i{
     color: black;
 }
-/* .wrapper{ 
-    position: relative;
-    z-index: 1;
-    overflow: hidden;  
-} 
-*/
+
 .header{
     width: 100%;
     left: 0px;
@@ -151,6 +146,8 @@ i{
     margin: 0 auto;
     
 }
+
+
 
 .registration__form__label{
     display: flex;

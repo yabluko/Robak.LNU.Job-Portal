@@ -46,7 +46,6 @@ p{
     display: flex;
 
     padding: 23px 23px 0px 23px ;
-    /* justify-content: center; */
     flex-direction: column;
     color: rgba(0,0,0,0.6);
 }
@@ -58,8 +57,16 @@ p{
     height: 32px;
 }
 
+input[type="password"]{
+    padding-left: 8px;
+}
+
+
+input[type="text"]{
+    padding-left: 8px;
+}
+
 .registration__form__label{
-    /* padding: 10px 0px 0px 0px ; */
     margin: 13px 0px 0px 4px ;
     font-size: 14px;
 }

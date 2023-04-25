@@ -1,42 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-    <link href="{% static 'css/info-style.css'%}" rel="stylesheet">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Table</h1>
-    {% block content %}
-    <div class="container">
-        <br><br><br>
-        <table class="table table-bordered" id="example">
-            <thead class="table-success">
-                <tr>
-                    <th>Id</th>
-                    <th>Username</th>
-                    <th>FirstName</th>
-                    <th>LastName</th>
-                    <th>Password</th>
-                </tr>
-            </thead>
-            {% for account in accounts  %}
-            <tr>
-                <td>{{ account.first_name }}</td>
-                <td>{{ account.last_name }}</td>
-                <td>{{ account.username }}</td>
-                <td>{{ account.email}}</td>
-                <td>{{account.password}}</td>
-            </tr>
-            {% endfor %}
-        </table>
+{% extends 'base.html' %}
 
-        <br><br><br>        
-    </div>
-    {% endblock content %}
+{% block content %}
 
-</body>
-</html>
+<h1>Profile List</h1>
+<br>
+
+{% if profiles %}
+    {% for profile in profiles %}
+        Username:{{ profile.user.username }}
+        <br>
+
+    {% endfor %}
+
+
+{% endif %}
+
+
+
+{% endblock  %}
