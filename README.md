@@ -42,15 +42,15 @@ After installation and configuration to run my application you just need in term
 
 ❌ -  Not Done 
 
-# Azure
+# Railway
 
-Creating SqlDatabase on Azure - ✅
+Creating SqlDatabase on Railway - ✅
 
-Creating AppService on Azure - ✅
+Creating AppService on Railway - ✅
 
-Deploying project on Azure - ⏳
+Deploying project on Railway - ✅
 
-Creating Application Insights - ❌
+CI/CD - ✅
 
 # Project 
 
@@ -61,6 +61,45 @@ Saving data to database - ⏳
 Creating login page - ❌
 
 Creating home page - ❌
+
+# Registraion page 
+ LoginUserRequest.
+ LoginUser - Razor Pages.
+ Input validation(Check user email and password from database).
+ 
+ # Login Page
+1. Creating a user model (User model) or using a ready-made user model, if it is in the project.
+
+2. Creation of a login form, which will contain fields for entering a login and password.
+
+3. Creating a corresponding view that will handle the POST request from the login form and validate the user's input.
+
+4. If the entered data is correct, creating a session for the user and redirecting him to the home page or to the page from which he started the login process (if such information is included in the request).
+
+5. If the entered data is incorrect, the user is returned to the login page with an appropriate error message.
+ 
+ 
+ # Home page
+ 
+ 
+ # Post of vacancies
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 
