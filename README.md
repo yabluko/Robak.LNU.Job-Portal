@@ -41,7 +41,7 @@ After installation and configuration to run my application you just need in term
 
 ❌ -  Not Done 
 
-### 1.Railway
+### 1. Railway
 
 Creating SqlDatabase on Railway - ✅
 
@@ -52,7 +52,7 @@ Deploying project on Railway - ✅
 CI/CD - ✅
 
 
-### 2.Registraion page 
+### 2. Registraion page 
 Creating a user model (User model) or using a ready-made user model - 
 
 Creation of a registration form, (name, e-mail, password, etc.). - 
@@ -66,7 +66,7 @@ If the registration is successful, creating a session for the user and redirecti
 If registration fails, the user is returned to the registration page with an error message. - 
 
  
-### 3.Login Page
+### 3. Login Page
 
 Creating a user model (User model)  - 
 
@@ -79,7 +79,7 @@ If the entered data is correct, creating a session for the user and redirecting 
 If the entered data is incorrect, the user is returned to the login page with an appropriate error message. - 
  
  
- ### 4.Home page
+ ### 4. Home page
  
  Creating a suitable URL (URL pattern) for the home page in the urls.py file. - 
  
@@ -89,7 +89,7 @@ If the entered data is incorrect, the user is returned to the login page with an
  
  Connecting CSS styles and other necessary dependencies to the HTML template. - 
  
- #### 5.Algorithms
+ #### 5. Algorithms
  
  Reccomend a post with vacancies by their job whicch they indicate in profile - 
  
