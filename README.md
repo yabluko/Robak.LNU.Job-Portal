@@ -1,11 +1,15 @@
 # LinkedIn Clone
 
 
-![logo](https://user-images.githubusercontent.com/61472883/234773328-18017cf7-bef6-4419-9ecb-b5f8d2621bfa.png)
-
-
 This is django project clone of LinkedIn.In this web-application you can create your profile with your skills ,experience of job, preferences for a job.
+# Stack
+[Django](https://www.djangoproject.com/) - is an open source web development framework written in the Python programming language. It allows developers to quickly create web applications with a high level of security, convenient administration and a large number of ready-made components.
 
+[PostgreSQL](https://www.postgresql.org/)PostgreSQL - Django supports various databases, including PostgreSQL, MySQL, and SQLite.
+
+HTML, CSS та JavaScript - Django can generate HTML pages for web applications, but you can use CSS and JavaScript for visual design and adding dynamics.
+
+[Railway](https://railway.app/) - is a cloud-based web application deployment platform that allows developers to quickly and easily deploy their projects without the need to manage infrastructure and configure servers.
 
 # Installation and Configuration
 
