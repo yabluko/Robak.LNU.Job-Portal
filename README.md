@@ -11,7 +11,7 @@ HTML, CSS та JavaScript - Django can generate HTML pages for web applications,
 
 [Railway](https://railway.app/) - is a cloud-based web application deployment platform that allows developers to quickly and easily deploy their projects without the need to manage infrastructure and configure servers.
 
-[REST Framework (DRF)](https://www.django-rest-framework.org) is a library for developing web applications using Django that makes it easy to create APIs (application programming interfaces) based on the REST architecture
+[REST Framework (DRF)](https://www.django-rest-framework.org)REST Framework (DRF)- is a library for developing web applications using Django that makes it easy to create APIs (application programming interfaces) based on the REST architecture
 
 # Installation and Configuration
 
