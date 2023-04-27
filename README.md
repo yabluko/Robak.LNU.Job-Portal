@@ -1,6 +1,8 @@
 # LinkedIn Clone
 
 
+![logo](https://user-images.githubusercontent.com/61472883/234773328-18017cf7-bef6-4419-9ecb-b5f8d2621bfa.png)
+
 
 This is django project clone of LinkedIn.In this web-application you can create your profile with your skills ,experience of job, preferences for a job.
 
