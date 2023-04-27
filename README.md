@@ -2,7 +2,7 @@
 
 
 This is django project clone of LinkedIn.In this web-application you can create your profile with your skills ,experience of job, preferences for a job.
-# Stack
+# Stack ⚙️
 [Django](https://www.djangoproject.com/) - is an open source web development framework written in the Python programming language. It allows developers to quickly create web applications with a high level of security, convenient administration and a large number of ready-made components.
 
 [PostgreSQL](https://www.postgresql.org/) - Django supports various databases, including PostgreSQL, MySQL, and SQLite.
