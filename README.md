@@ -35,14 +35,13 @@ After installation and configuration to run my application you just need in term
 
 # Decomposition of Tasks 📝:
 
-
 ✅ - Done
 
 ⏳ - In progress
 
 ❌ -  Not Done 
 
-# Railway
+### Railway
 
 Creating SqlDatabase on Railway - ✅
 
@@ -52,45 +51,35 @@ Deploying project on Railway - ✅
 
 CI/CD - ✅
 
-# Project 
 
-Creating registration page - ⏳
+### Registraion page 
+Creating a user model (User model) or using a ready-made user model - 
 
-Saving data to database - ⏳
-
-Creating login page - ❌
-
-Creating home page - ❌
-
-
-#### Registraion page 
-Creating a user model (User model) or using a ready-made user model, if it exists in the project. - 
-
-Creation of a registration form, which will contain the necessary fields for entering information about a new user (name, e-mail, password, etc.). - 
+Creation of a registration form, (name, e-mail, password, etc.). - 
 
 Creating a corresponding view that will handle the POST request from the registration form and create a new user in the database. - 
 
-Verification of the correctness of the information entered by the user and its validation on the server side. - 
+Verification of the correctness of the information  - 
 
-If the registration is successful, creating a session for the user and redirecting him to the home page or to the page from which he started the registration process (if such information is included in the request). - 
+If the registration is successful, creating a session for the user and redirecting him to the home page  - 
 
 If registration fails, the user is returned to the registration page with an error message. - 
 
  
-#### Login Page
+### Login Page
 
-Creating a user model (User model) or using a ready-made user model, if it is in the project. - 
+Creating a user model (User model)  - 
 
- Creation of a login form, which will contain fields for entering a login and password. - 
+Creation of a login form, which will contain fields for entering a login and password. - 
 
- Creating a corresponding view that will handle the POST request from the login form and validate the user's input. - 
+Creating a corresponding view that will handle the POST request from the login form and validate the user's input. - 
 
- If the entered data is correct, creating a session for the user and redirecting him to the home page or to the page from which he started the login process (if such information is included in the request). - 
+If the entered data is correct, creating a session for the user and redirecting him to the home page or to the page - 
 
- If the entered data is incorrect, the user is returned to the login page with an appropriate error message. - 
+If the entered data is incorrect, the user is returned to the login page with an appropriate error message. - 
  
  
- #### Home page
+ ### Home page
  
  Creating a suitable URL (URL pattern) for the home page in the urls.py file. - 
  
@@ -102,8 +91,13 @@ Creating a user model (User model) or using a ready-made user model, if it is in
  
  #### Algorithms
  
+ Reccomend a post with vacancies by their job whicch they indicate in profile - 
+ 
  Search of vacancies - 
  
+ # Contact me 📱
+ 
+ [Telegram]([[https://t.me/zhushchonka]](https://web.telegram.org/z/))
  
  
  
