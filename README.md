@@ -25,7 +25,7 @@ To download this django project you should do next steps:
 
 4. Change the directory to the project directory: ```cd job_portal```.
 
-# Usage: 🚀
+# Usage 🚀
 
 After installation and configuration to run my application you just need in terminal write next command
 
