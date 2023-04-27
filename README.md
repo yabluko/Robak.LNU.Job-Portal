@@ -11,7 +11,7 @@ HTML, CSS та JavaScript - Django can generate HTML pages for web applications,
 
 [Railway](https://railway.app/) - is a cloud-based web application deployment platform that allows developers to quickly and easily deploy their projects without the need to manage infrastructure and configure servers.
 
-[REST Framework (DRF)](https://www.django-rest-framework.org)REST Framework (DRF)- is a library for developing web applications using Django that makes it easy to create APIs (application programming interfaces) based on the REST architecture
+[REST Framework (DRF)](https://www.django-rest-framework.org)- is a library for developing web applications using Django that makes it easy to create APIs (application programming interfaces) based on the REST architecture
 
 # Installation and Configuration
 
@@ -24,6 +24,10 @@ To download this django project you should do next steps:
 3. Clone my repository by command ```git clone https://github.com/yabluko/Robak.LNU.Job-Portal.git```
 
 4. Change the directory to the project directory: ```cd job_portal```.
+
+🚀 # Usage:
+
+After installation and configuration to run my application you just need in terminal write next command
 
 5. Start the Django server by executing the following command: ```python3 manage.py runserver```.
 
