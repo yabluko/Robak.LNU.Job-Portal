@@ -12,6 +12,11 @@ body{
     background-color:#f3f2ef;
 }
 
+h1{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
 p{
     font-size: 12px;
 }

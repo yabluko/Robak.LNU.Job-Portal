@@ -1,0 +1,109 @@
+h1{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    
+}
+p{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    
+}
+.main__container{
+    width: 1120px;
+    height: 800px;
+    margin: 0 auto;
+    display: flex;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.main__profile{
+    flex-basis: 70%; 
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+
+.profile__background{
+    width: 100%;
+    height: 200px;
+    border-radius: 5px;
+}
+
+.main__profile__text{
+    padding: 15px;
+}
+
+.main__profile__text img{
+    width: 90px;
+    border-radius: 50%;
+    background: #fff;
+    padding: 4px;
+    margin-top: -45px;
+}
+
+.main__profile__text h1{
+    font-size: 24px;
+}
+.main__profile__text b {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.side__profile{
+    flex-basis: 25%;
+    background-color: #fff;
+    position: sticky;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.post__button__follow {
+    display: inline-block;
+    margin-top: 10px;
+    /* margin-right: 10px; */
+    background: #339DFF;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    font-size: 16px;
+    font-family: 'AvenirNext', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 38px;
+    border-radius: 50px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    width: 170px;
+    text-align: center;
+}
+  
+.post__button__follow:hover {
+    background: #fff;
+    color: #339DFF;
+    box-shadow: 0 4px 4px rgba(83, 100, 255, 0.32);
+}
+
+.post__button__unfollow{
+    display: inline-block;
+    margin-top: 10px;
+    /* margin-right: 10px; */
+    background: #ff3333;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    font-size: 16px;
+    font-family: 'AvenirNext', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 38px;
+    border-radius: 50px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    width: 170px;
+    text-align: center;
+
+}
+
+.post__button__unfollow:hover {
+    background: #fff;
+    color: #339DFF;
+    box-shadow: 0 4px 4px rgba(255, 83, 83, 0.32);
+}

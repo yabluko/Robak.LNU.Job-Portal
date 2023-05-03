@@ -1,0 +1,81 @@
+{% extends 'navbar.html'%}
+{% load static %}
+{% block content %}
+<header>
+    <link rel="stylesheet" href="{% static 'css/profile-user.css' %}">
+</header>
+
+<br>
+<br>
+<br>
+
+<div class="main__container">
+    <div class="main__profile">
+        
+        <div class="main__profile__info">
+            <img src="/static/img/Playboi_Carti.jpg" class="profile__background">
+            
+            
+            <div class="main__profile__text">
+                <img src="/static/img/person-circle.jpg" >
+                
+                <h1>{{ profile.user.username }}</h1>
+                
+                
+            {% if profile %}
+                <form method="POST">
+                    {% csrf_token %} 
+                    {% if profile in user.profile.follows.all %}
+                    <button class="post__button__unfollow"name="follow" value="unfollow" type="submit">Unfollow</button>
+
+                    {% else %}
+
+                    <button class="post__button__follow" name="follow" value="follow" type="submit">Follow</button>
+                </form>
+    
+                {% endif %} 
+            {% endif %}
+            </div>
+            
+            
+
+
+    
+    
+</div>
+
+</div>
+
+
+
+
+<div class="side__profile">
+    <div>
+        <strong> Follows </strong>
+        {% for following in profile.follows.all %}
+       
+        <a href="{% url 'profile' following.user.id%}">  @{{ following }}  </a>
+        
+        
+        
+        {% endfor %}
+        <br>
+        <br>
+        <strong>Followed by</strong>
+        {% for following in profile.followed_by.all %}
+       
+        <a href="{% url 'profile' following.user.id%}">  @{{ following }}  </a>
+        
+        
+        
+        {% endfor %}
+    </div>
+    
+</div>    
+
+
+
+</div>
+
+
+{% endblock %}

@@ -166,7 +166,7 @@ p{
     height: 53px;
 }
 
-input[type="email"]{
+input[type="text"]{
     font-family: 'AvenirNext', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     padding-left: 8px;
 }
