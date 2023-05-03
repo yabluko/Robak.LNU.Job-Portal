@@ -31,12 +31,8 @@ def signup(request):
 
 
 def profile_list(request):
-    if request.user.is_authenticated:
-        profiles = Profile.objects.exclude(user=request.user) # виключити де user = request.user
-        return render(request, 'profile_list.html', {'profiles': profiles})
-    else:
-        messages.success(request, ("You must be log in to view this page"))
-        return redirect('main')
+    profiles = Profile.objects.exclude(user=request.user)
+    return render(request, 'profile-page.html', {"profiles": profiles})
     
  
 def home(request):
@@ -57,5 +53,5 @@ def home(request):
         return render(request, 'home-page.html', {'posts': posts})
     
 
-def profile(request):
-    return render(request, 'profile-page')    
+# def profile(request):
+#     return render(request, 'profile-page.html')    

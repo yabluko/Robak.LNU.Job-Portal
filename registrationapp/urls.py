@@ -7,4 +7,5 @@ urlpatterns = [
     path('profile_list', views.profile_list, name="profile_list"),
     path('', views.main, name="main" ),
     path('home1', views.home, name='home'),
+    # path('profile', views.profile, name='profile')
 ]
