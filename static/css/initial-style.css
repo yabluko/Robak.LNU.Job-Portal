@@ -49,6 +49,7 @@ p{
     border: 1px solid #0a66c2;
     color: #0a66c2;
 }
+
 .header__button__href:hover{
     background-color: #0073b138;
 }
@@ -165,7 +166,7 @@ p{
     height: 53px;
 }
 
-input[type="text"]{
+input[type="email"]{
     font-family: 'AvenirNext', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     padding-left: 8px;
 }
@@ -196,6 +197,7 @@ input:hover{
     cursor: pointer;
     display: inline-block;
     border: none;
+    margin-top: 15px;
 }
 
 .registration__form__button:hover{

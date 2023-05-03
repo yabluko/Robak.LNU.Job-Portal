@@ -1,0 +1,271 @@
+h1{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+ul{
+    padding-inline-start: 0px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+p{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+.main__container{
+    
+    width: 1120px;
+    height: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.main__content{
+    flex-basis: 45%;
+}
+
+.main__content__post{
+    background-color: #fff;
+    border-radius: 5px;
+}
+.main__content__input{
+    padding: 20px 25px 10px ;
+    display: flex;
+    align-items: flex-start;
+
+}
+
+.main__content__input img{
+      width: 35px;
+      border-radius: 50%;
+      margin-right: 10px;
+}
+
+.main__content__input textarea{
+    width: 100%;
+    height: 25px;
+    border: 0;
+    outline: 0;
+    resize: none;
+    background: transparent;
+    margin-top: 8px;
+}
+
+::placeholder{
+    font-weight: 500;
+    font-family: 'AvenirNext', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    
+}
+
+
+.main__list{
+    display: flex;
+
+}
+
+.main__list li{
+    flex-basis: 100%;
+    height: 40px;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.main__list li:last-child{
+    border-right: none;
+}
+
+.main__list li img{
+    margin-right: 10px;
+}
+
+.main__list__text{
+    margin-left: 10px;
+}
+
+
+.left-sidebar{
+    flex-basis: 25%;
+    align-self: flex-start;
+    max-height: 515.9px;
+}
+
+
+.sidebar-profile-box{
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.sidebar-profile-box img{
+    border-radius: 5px;
+
+}
+
+.sidebar-profile-info{
+    padding: 10px;
+}
+.sidebar-profile-info ul{
+    margin: 20px 0 ;
+    /* height: 250px; */
+
+}
+
+.sidebar-profile-info img{
+    width: 90px;
+    border-radius: 50%;
+    background: #fff;
+    padding: 4px;
+    margin-top: -45px;
+
+}
+
+.sidebar-profile-info h1{
+    font-size: 20px;
+    font-weight: 600;
+    color: #222;
+
+}
+
+.sidebar-profile-info h3{
+    font-size: 14px;
+    font-weight: 500;
+    color: #777;
+}
+
+.sidebar-profile-info ul li{
+    width: 100%;
+    margin: 10px 0;
+    font-size: 13px;
+}
+
+
+.sidebar-profile-info ul li span{
+    float: right;
+    color: #045be6;
+}
+
+.right-sidebar{
+    flex-basis: 25%;
+}
+
+.right-sidebar-info{
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 0 25px;
+}
+
+.right-sidebar-title {
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.right-sidebar-title h2{
+    font-size: 16px;
+}
+
+.right-sidebar-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.right-sidebar-list li{
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.right-sidebar-list span{
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.right-sidebar-list button{
+    color: #626262;
+    margin: 0 auto;
+    border-radius: 20px ;
+    border: 1px solid #626262;
+    font-weight: 600;
+    background-color: #fff;
+    padding: 8px;
+    font-size: 16px;
+    height:32px;
+    width:154px;
+    margin-top: 5px;
+}
+
+.right-sidebar-li{
+    display: flex;
+    flex-direction: column;
+}
+
+.right-sidebar-ul{
+    padding: 10px;
+}
+
+.submit-button{
+        background-color: white;
+        color: black;
+        border: 2px solid #e7e7e7;
+        border-radius: 5px;
+        font-family: 'AvenirNext', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        
+}
+
+.submit-button:hover{
+    background-color: #e5e5e5;
+    transition-delay: 0.1s;
+}
+
+.form__post{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.sort-by{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+
+}
+.sort-by p {
+    font-size: 14px;
+    margin-left: 5px;
+
+}
+
+.sort-by hr{
+    flex: 1;
+    border: 0;
+    height: 1px;
+    background: #ccc;
+}
+
+.post__text{
+    font-size: 12px;
+    font-weight: 200;
+}
+
+.post__user{
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+}
