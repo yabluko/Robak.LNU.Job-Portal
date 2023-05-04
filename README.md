@@ -53,47 +53,45 @@ CI/CD - ✅
 
 
 ### 2. Registraion page 
-Creating a user model (User model) or using a ready-made user model - 
+Creating a user model - ✅
 
-Creation of a registration form, (name, e-mail, password, etc.). - 
+Creation of a registration form - ✅
 
-Creating a corresponding view that will handle the POST request from the registration form and create a new user in the database. - 
+Creating a corresponding view  - ✅
 
-Verification of the correctness of the information  - 
+Verification of the correctness of the information  - ✅
 
-If the registration is successful, creating a session for the user and redirecting him to the home page  - 
-
-If registration fails, the user is returned to the registration page with an error message. - 
 
  
 ### 3. Login Page
 
-Creating a user model (User model)  - 
+Creating a user model (User model)  - ✅
 
-Creation of a login form, which will contain fields for entering a login and password. - 
+Creation of a login form - ✅
 
-Creating a corresponding view that will handle the POST request from the login form and validate the user's input. - 
+Creating a corresponding view that will handle the POST request from the login form  - ✅
 
-If the entered data is correct, creating a session for the user and redirecting him to the home page or to the page - 
-
-If the entered data is incorrect, the user is returned to the login page with an appropriate error message. - 
  
  
  ### 4. Home page
  
- Creating a suitable URL (URL pattern) for the home page in the urls.py file. - 
+ Creating a suitable URL (URL pattern) for the home page in the urls.py file. - ✅
  
- Creating a view function that will be responsible for displaying the home page. - 
+ Creating a view function that will be responsible for displaying the home page. - ✅
  
- Create an HTML template for the home page that will contain the necessary information and design elements. - 
+ Create an HTML template for the home page that will contain the necessary information and design elements. - ✅
  
- Connecting CSS styles and other necessary dependencies to the HTML template. - 
+ Connecting CSS styles and necessary dependencies to the HTML template. - ✅
+ 
+ Create authentication with Google - ⏳
+ 
+ 
  
  #### 5. Algorithms
  
- Reccomend a post with vacancies by their job whicch they indicate in profile - 
+ Reccomend a post with vacancies by their job whicch they indicate in profile - ❌ 
  
- Search of vacancies - 
+ Search of vacancies - ❌ 
  
  # Contact me 📱
  
