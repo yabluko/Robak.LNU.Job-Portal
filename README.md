@@ -13,7 +13,7 @@ HTML, CSS та JavaScript - Django can generate HTML pages for web applications,
 
 [REST Framework (DRF)](https://www.django-rest-framework.org)- is a library for developing web applications using Django that makes it easy to create APIs (application programming interfaces) based on the REST architecture
 
-# Installation and Configuration 🛠️
+🛠️ # Installation and Configuration 
 
 To download this django project you should do next steps:
 
