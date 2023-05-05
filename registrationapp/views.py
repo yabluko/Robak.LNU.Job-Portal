@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout 
 from .models import Profile, Post
-from .forms import PostForm
+from .forms import PostForm,SignUpForm
 # Create your views here.
 
 def main(request):
@@ -18,17 +18,36 @@ def main(request):
         else:
             messages.success(request,("There was an error logging in .Please try again..."))
             return redirect('main')
-        
     else:    
         return render(request, 'initial-page.html')
 
+
+def logout_user(request):
+    logout(request)
+    return redirect('main')
 
 def signin(request):
     return render(request, 'login-index.html')
 
 
 def signup(request):
-    return render(request, 'signup.html')
+    form = SignUpForm()
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            email = form.cleaned_data['email']
+             
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('home')
+
+
+    return render(request, 'signup.html', {'form':form})
 
 
 def profile_list(request):
@@ -60,6 +79,7 @@ def profile(request, pk):
 def home(request):
     if request.user.is_authenticated:
         form = PostForm(request.POST or None)
+        username = request.user.username
         if request.method == "POST":
             if form.is_valid():
                 post = form.save(commit=False)
@@ -69,11 +89,12 @@ def home(request):
                 return redirect('home')
 
         posts = Post.objects.all().order_by("-created_at")
-        return render(request, 'home-page.html', {'posts': posts, 'form': form})
+        return render(request, 'home-page.html', {'posts': posts, 'form': form, 'username': username})
     else:
         messages.success(request, "Your must be log in!")
         posts = Post.objects.all().order_by("-created_at")
-    return render(request, 'home-page.html',{'posts': posts})
+
+    return render(request, 'home-page.html',{'posts': posts, 'username': username})
     
 
 # def profile(request):

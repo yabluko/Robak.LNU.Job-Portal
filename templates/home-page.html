@@ -1,6 +1,5 @@
 {% extends 'navbar.html' %}
 {% load static %}
-
 {% block content %}
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'css/home-page.css' %}"> 
@@ -13,6 +12,7 @@
 <br>
 <br>
 <br>
+
  <div class="main__container">
     <div class="left-sidebar">
         <div class="sidebar-profile-box">
@@ -20,9 +20,8 @@
             <img src="/static/img/album-cover.jpeg" width="100%">
 
             <div class="sidebar-profile-info">
-                <img src="/static/img/playboicarti.jpg" alt="">
-                <h1>Jordan Carter</h1>
-
+                <!-- <img src="/static/img/person-circle.jpg" alt=""> -->
+                {{ username }}
                 <h3>Software LNU</h3>
 
                 <ul>
@@ -44,7 +43,7 @@
         <div class="main__content__post">
             <div class="main__content__input">
 
-                <img src="/static/img/playboicarti.jpg" alt="">
+                <img src="/static/img/person-circle.jpg" alt="">
                 {% if form %}
                 <form class="form__post" method="POST">
                     {% csrf_token %}
@@ -162,5 +161,4 @@
     </div>
         
 </div> 
-
 {% endblock %}  

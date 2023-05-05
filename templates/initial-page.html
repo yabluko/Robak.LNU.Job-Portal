@@ -29,10 +29,6 @@
                 <a href="{% url 'signup' %}" class="header__button__href">Join now</a>
             </div>
 
-            <div class="header__button__sign">
-
-                <a href="{% url 'home' %}" class="header__button__href">Sign in </a>
-            </div>
         </div>    
     </div>
 </header>
@@ -48,7 +44,7 @@
             <form action="{% url 'main'%}" class="registration__form" method='POST'>
                 {% csrf_token %}
                 <label for="" class="registration__form__label">Username</label>
-                <input type="text" class="main__container__input" placeholder="Your email address" name="username">
+                <input type="text" class="main__container__input" placeholder="Your username" name="username">
                 <label for="" class="registration__form__label">Password</label>
                 <input type="password" class="main__container__input" placeholder="Your password" name="password">
                 

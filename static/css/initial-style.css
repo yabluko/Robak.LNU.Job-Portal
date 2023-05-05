@@ -34,7 +34,8 @@ p{
     width: 223px;
     display: flex;
     align-items:center;
-    justify-content: space-around;
+    justify-content: flex-end;
+    
 }
 
 .header__button__sign{

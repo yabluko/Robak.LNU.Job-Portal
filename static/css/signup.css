@@ -29,7 +29,7 @@ p{
 .main__container{
     overflow: hidden;
     width:1128px ;
-    height: 750px;
+    height: 850px;
     margin: 0 auto;
 }
 
@@ -44,7 +44,7 @@ p{
 
 .main__form{
     width: 400px;
-    height: 480px;
+    height: 580px;
     margin: 0 auto;
     background-color: #fff;
     border-radius: 5px;
@@ -60,6 +60,7 @@ p{
 .registration__form__input{
     width: 352px;
     height: 32px;
+    margin-bottom: 5px;
 }
 
 input[type="password"]{
@@ -70,12 +71,6 @@ input[type="password"]{
 input[type="text"]{
     padding-left: 8px;
 }
-
-.registration__form__label{
-    margin: 13px 0px 0px 4px ;
-    font-size: 14px;
-}
-
 
 .registration__form__button{
     margin: 20px 0px 0px 0px ;
@@ -92,10 +87,14 @@ input[type="text"]{
     border: none;
 }
 
+.registration__form__button:hover{
+    background-color:#004182 ;
+}
+
 
 .form__content{
     text-align: center;
-    margin: 20px 0px 0px 0px ;
+    margin: 10px 0px 0px 0px ;
     font-size: 16px;
 }
 
@@ -103,11 +102,34 @@ input[type="text"]{
     color: #0a66c2;
 }
 
+.form-text{
+    margin-left: 5px;
+}
+
+.form-text-li{
+    margin-left: 5px;
+}
+
 .bootom__footer{
     width: 100%;
-    height: 66px;
+    height: 56px;
     background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.main__form label{
+    font-size: 16px;
+    margin: 5px 0px 0px 5px ;
+    font-size: 14px;
+}
+
+.main__form p{
+    margin-bottom: 5px;
+}
+
+.form-text-li{
+    font-size: 10px;
+    font-weight: 300;
 }
