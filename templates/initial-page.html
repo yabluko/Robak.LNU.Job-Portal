@@ -34,6 +34,17 @@
 </header>
 
 <main class="main">
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">
+                {{ message|safe }}
+                <a href="{%url 'main'%}" class="close">x</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
     <div class="main__container">
         <div class="main__container__content">
 

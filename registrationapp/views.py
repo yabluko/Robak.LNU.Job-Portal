@@ -13,7 +13,7 @@ def main(request):
                  
         if user is not None:
             login(request, user)
-            messages.success(request, ("You have been succesfully log in"))
+            messages.success(request, ("You have been succesfully log in"), extra_tags='message-error')
             return redirect('home')
         else:
             messages.success(request,("There was an error logging in .Please try again..."))
