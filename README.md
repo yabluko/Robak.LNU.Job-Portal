@@ -102,6 +102,8 @@ My name: Yaroslav Tsvyk
 
 My project: [here](https://github.com/Bossanova567/Typing-Speed-Test-Website).
 
+My pull request: [here](https://github.com/yabluko/Robak.LNU.Job-Portal/pull/1).
+
  # Contact me 📱
  
  [Telegram]([[https://t.me/zhushchonka]](https://web.telegram.org/z/))
