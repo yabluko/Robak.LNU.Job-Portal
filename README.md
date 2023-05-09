@@ -94,6 +94,14 @@ After installation and configuration to run my application you just need in term
  
  2)Search of vacancies - ❌ 
  
+# Description:
+
+I implemented a feature into Yurii's project. I added form for authenticated users to edit their profile (added picture of their profile, change username, change first name and last name). 
+
+My name: Yaroslav Tsvyk 
+
+My project: [here](https://github.com/Bossanova567/Typing-Speed-Test-Website).
+
  # Contact me 📱
  
  [Telegram]([[https://t.me/zhushchonka]](https://web.telegram.org/z/))
