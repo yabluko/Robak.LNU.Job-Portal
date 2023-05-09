@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout 
 from .models import Profile, Post
 from .forms import PostForm,SignUpForm
+from django.contrib.auth.models import User
 # Create your views here.
 
 def main(request):
@@ -96,7 +97,21 @@ def home(request):
         posts = Post.objects.all().order_by("-created_at")
 
     return render(request, 'home-page.html',{'posts': posts, 'username':username})
+
     
+def update_user(request):
+    if request.user.is_authenticated:
+        current_user = User.objects.get(id=request.user.id)
+        form = SignUpForm(request.POST or None, instance=current_user)
+        if form.is_valid():
+            form.save()
+            login(request, current_user)
+            redirect(request, 'profile')
+        return render(request, 'update-user.html',{'form':form})
+
+    else:
+        messages.success(request, "Your must be log in!")
+        return redirect('main')
 
 # def profile(request):
 #     return render(request, 'profile-page.html')    

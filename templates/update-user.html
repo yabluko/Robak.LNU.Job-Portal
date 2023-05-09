@@ -1,0 +1,15 @@
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/update-user.css'%}">
+
+<h1 class="change-title">Edit user profile</h1>
+<form action="" method="POST" class="mainform">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit"  class="registrationformbutton">Sign in</button>
+
+    <p class="formcontent">Already on LinkedIn?<a href="/" class="form__href"> Log in </a></p>
+</form>
+
+{% endblock %} 
+
