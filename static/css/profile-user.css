@@ -107,3 +107,14 @@ p{
     color: #339DFF;
     box-shadow: 0 4px 4px rgba(255, 83, 83, 0.32);
 }
+
+.main__profile__wrappper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main__profile__edit{
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
