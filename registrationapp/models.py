@@ -26,6 +26,11 @@ class Profile(models.Model):
             symmetrical=False,     
             blank=True
             )
+    profile_image = models.ImageField(null=True, blank=True, upload_to="images/")
+    bio = models.CharField(max_length=200,null=True, blank=True)
+    jobs = models.CharField(max_length=200,null=True, blank=True)
+    phone_number = models.CharField(max_length=20,null=True, blank=True)
+    skills = models.CharField(max_length=200,null=True, blank=True)
     
     def __str__(self):
         return self.user.username    

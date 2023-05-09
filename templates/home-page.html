@@ -13,7 +13,20 @@
 <br>
 <br>
 
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <li class="{{ message.tags }}">
+            {{ message|safe }}
+            <a href="{%url 'home'%}" class="close">x</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endif %}
  <div class="main__container">
+
+
+
     <div class="left-sidebar">
         <div class="sidebar-profile-box">
 
@@ -48,6 +61,7 @@
                 <form class="form__post" method="POST">
                     {% csrf_token %}
                     {{ form.as_p }}
+                    
 
                     <button class="submit-button" type="submit">
                             Post

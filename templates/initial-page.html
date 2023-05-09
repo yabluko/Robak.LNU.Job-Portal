@@ -1,4 +1,5 @@
 {% load static %}
+{% load socialaccount %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,7 +68,7 @@
             </div>
             
             <div class="main__button__google">
-                <a href="#" class="main__button__href">
+                <a href="{% provider_login_url 'google' %}?next=/" class="main__button__href">
                    <div class="main__google__img"><img src="/static/img/image2vector.svg" alt="logo" class="logo__google"></div>
 
                     <div class="main__google__text">Sign with Google</div>

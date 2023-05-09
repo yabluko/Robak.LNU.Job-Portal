@@ -13,10 +13,10 @@ def main(request):
                  
         if user is not None:
             login(request, user)
-            messages.success(request, ("You have been succesfully log in"), extra_tags='message-error')
+            messages.success(request, ("You have been succesfully log in"), extra_tags='message-success')
             return redirect('home')
         else:
-            messages.success(request,("There was an error logging in .Please try again..."))
+            messages.success(request,("There was an error logging in .Please try again..."),extra_tags='message-error')
             return redirect('main')
     else:    
         return render(request, 'initial-page.html')
@@ -24,6 +24,7 @@ def main(request):
 
 def logout_user(request):
     logout(request)
+    messages.success(request, ("You have been succesfully log out"), extra_tags='message-error')
     return redirect('main')
 
 def signin(request):
@@ -85,7 +86,7 @@ def home(request):
                 post = form.save(commit=False)
                 post.user = request.user
                 post.save()
-                messages.success(request, "Your post has been posted!")
+                messages.success(request, "Your post has been posted!", extra_tags='message-success')
                 return redirect('home')
 
         posts = Post.objects.all().order_by("-created_at")
@@ -94,7 +95,7 @@ def home(request):
         messages.success(request, "Your must be log in!")
         posts = Post.objects.all().order_by("-created_at")
 
-    return render(request, 'home-page.html',{'posts': posts, 'username': username})
+    return render(request, 'home-page.html',{'posts': posts, 'username':username})
     
 
 # def profile(request):

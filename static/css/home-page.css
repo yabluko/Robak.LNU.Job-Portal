@@ -270,16 +270,18 @@ p{
     padding: 10px;
 }
 
-.alert {
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-}
   
-.alert-success {
+.message-success.success{
+    background-color: #ccebd2;
     color: #3c763d;
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
+    border: 2px solid #ccebd2;
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
 }
-  
