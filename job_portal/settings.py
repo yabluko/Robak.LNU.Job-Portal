@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
-SITE_ID = 2
+# SITE_ID = 2
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -46,23 +46,23 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'registrationapp',
     "django.contrib.sites",
-    "allauth",
-    "allauth.account",
-    "allauth.socialaccount",
-    "allauth.socialaccount.providers.google",
+    # "allauth",
+    # "allauth.account",
+    # "allauth.socialaccount",
+    # "allauth.socialaccount.providers.google",
 ]
 
-SOCIALACCOUNT_PROVIDERS = {
-    "google": {
-        "SCOPE":[
-            "profile",
-            "email",
-        ],
-        "AUTH_PARAMS": {
-            "access_type":"online",
-            }
-    }
-}
+# SOCIALACCOUNT_PROVIDERS = {
+#     "google": {
+#         "SCOPE":[
+#             "profile",
+#             "email",
+#         ],
+#         "AUTH_PARAMS": {
+#             "access_type":"online",
+#             }
+#     }
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -162,10 +162,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend'
-]
+# AUTHENTICATION_BACKENDS = [
+#     'django.contrib.auth.backends.ModelBackend',
+#     'allauth.account.auth_backends.AuthenticationBackend'
+# ]
 
-LOGIN_REDIRECT_URL = "home"
-LOGOUT_REDIRECT_URL = "main"
+# LOGIN_REDIRECT_URL = "home"
+# LOGOUT_REDIRECT_URL = "main"
