@@ -59,8 +59,8 @@
                 <img src="/static/img/person-circle.jpg" alt="">
                 {% if form %}
                 <form class="form__post" method="POST">
-                    {% csrf_token %}
                     {{ form.as_p }}
+                    {% csrf_token %}
                     
 
                     <button class="submit-button" type="submit">
