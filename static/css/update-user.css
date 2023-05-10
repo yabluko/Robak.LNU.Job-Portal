@@ -21,12 +21,12 @@ p{
     font-size: 12px;
 }
 
-.logophoto{
+.logo__photo{
     width: 135px;
     height: 33.75px;
 }
 
-.maincontainer{
+.main__container{
     overflow: hidden;
     width:1128px ;
     height: 850px;
@@ -37,12 +37,12 @@ p{
     margin: 24px 0px 0px 0px ;
 }
 
-.maintitle{
+.main__title{
     text-align: center;
     padding: 24px;
 }
 
-.mainform{
+.main__form{
     width: 400px;
     height: 580px;
     margin: 0 auto;
@@ -57,7 +57,7 @@ p{
 
 
 
-.registrationforminput{
+.registration__form__input{
     width: 352px;
     height: 32px;
     margin-bottom: 5px;
@@ -72,7 +72,7 @@ input[type="text"]{
     padding-left: 8px;
 }
 
-.registrationformbutton{
+.registration__form__button{
     margin: 20px 0px 0px 0px ;
     height: 48px;
     border-radius: 24px;
@@ -87,17 +87,17 @@ input[type="text"]{
     border: none;
 }
 
-.registrationformbutton:hover{
+.registration__form__button:hover{
     background-color:#004182 ;
 }
 
-.formcontent{
+.form__content{
     text-align: center;
     margin: 10px 0px 0px 0px ;
     font-size: 16px;
 }
 
-.formhref{
+.form__href{
     color: #0a66c2;
 }
 
@@ -109,7 +109,7 @@ input[type="text"]{
     margin-left: 5px;
 }
 
-.bootomfooter{
+.bootom__footer{
     width: 100%;
     height: 56px;
     background-color: #fff;
@@ -118,7 +118,7 @@ input[type="text"]{
     align-items: center;
 }
 
-.mainform label{
+.main__form label{
     font-size: 16px;
     margin: 5px 0px 0px 5px ;
     font-size: 14px;
