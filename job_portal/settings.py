@@ -31,6 +31,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# settings.py
+
+CSRF_TRUSTED_ORIGINS = ['linkedinclone.up.railway.app']
 
 # Application definition
 
