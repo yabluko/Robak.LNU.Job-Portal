@@ -106,7 +106,7 @@ My pull request: [here](https://github.com/yabluko/Robak.LNU.Job-Portal/pull/1).
 
  # Contact me 📱
  
- [Telegram][https://t.me/zhushchonka](https://web.telegram.org/z/)
+ [Telegram](https://t.me/zhushchonka)
  
  
  
