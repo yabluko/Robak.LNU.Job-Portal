@@ -1,12 +1,26 @@
 from django import forms
 from django.forms import ModelForm
-from .models import User,Post
+from .models import User, Post , Profile
 from django.contrib.auth.forms import UserCreationForm
+
+class ProfileUserForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('first_name','last_name', 'username', 'jobs', 'skills','education', )
+
+
+class ProfilePicForm(forms.ModelForm):
+    profile_image = forms.ImageField(label='Profile Picture')
+
+    class Meta:
+        model = Profile
+        fields = ('profile_image', )
+ 
 
 class UserForm(ModelForm):
     class Meta:
         model = User
-        fields = ('email' , 'password')
+        fields = ('email' , 'password',)
 
 class PostForm(forms.ModelForm):
     body = forms.CharField(required=True,
@@ -30,7 +44,7 @@ class SignUpForm(UserCreationForm):
     password2 = forms.CharField(label='Confirm Password', widget=forms.PasswordInput(attrs={'class':'registration__form__input'}))
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'username','email', 'password1', 'password2')
+        fields = ('first_name', 'last_name', 'username','email', 'password1', 'password2',)
 
     def  __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)

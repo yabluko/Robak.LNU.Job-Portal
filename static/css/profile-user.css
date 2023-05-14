@@ -34,13 +34,12 @@ p{
 .main__profile__text{
     padding: 15px;
 }
-
-.main__profile__text img{
+.main__profile__img {
     width: 90px;
     border-radius: 50%;
     background: #fff;
     padding: 4px;
-    margin-top: -45px;
+    margin-top: -90px;
 }
 
 .main__profile__text h1{

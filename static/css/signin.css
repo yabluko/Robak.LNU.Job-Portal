@@ -144,3 +144,12 @@ a{
     align-items: center;
 
 }
+
+.navbar__profile__img{
+    width: 23px;
+    border-radius: 50%;
+}
+
+.logo__nav{
+    height: 30px;
+}

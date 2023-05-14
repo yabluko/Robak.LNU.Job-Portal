@@ -33,14 +33,26 @@
             <img src="/static/img/album-cover.jpeg" width="100%">
 
             <div class="sidebar-profile-info">
-                <!-- <img src="/static/img/person-circle.jpg" alt=""> -->
-                {{ username }}
-                <h3>Software LNU</h3>
+                {% if profile.profile_image %}
+                    <img src="{{ profile.profile_image.url }}" class="main__profile__img" width="100px" height="100px">
+                    {% else %}
+                    <img src="/static/img/person-circle.jpg" >
+                {% endif %}
+                
+                <h1>{{ profile.username }}</h1>
+                <div class="sidebar-profile-text">   
+                    {{ profile.first_name }} 
+                    {{ profile.last_name }} 
+                </div>
+
+
+                <h3>{{ profile.education }}</h3>
+                <h3>{{ profile.jobs }}</h3>
 
                 <ul>
-                    <li>Your profile views <span>52</span></li>
-                    <li>Your post views <span>810</span></li>
-                    <li>Your connections <span>205</span></li>
+                    <li>Your profile subscribers <span>{{ profile.followers_count }}</span></li>
+                    <li>Your posts <span> {{ number_of_posts }} </span></li>
+                    <li>Your connections <span></span></li>
 
                 </ul>
 
@@ -55,8 +67,11 @@
     <div class="main__content">
         <div class="main__content__post">
             <div class="main__content__input">
-
+                {% if profile.profile_image %}
+                <img src="{{ profile.profile_image.url }}" width="42px" height="42px">
+                {% else %}
                 <img src="/static/img/person-circle.jpg" alt="">
+                {% endif %}
                 {% if form %}
                 <form class="form__post" method="POST">
                     {{ form.as_p }}

@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from django import forms
+
 # Create your models here.
 
 
@@ -26,14 +28,19 @@ class Profile(models.Model):
             symmetrical=False,     
             blank=True
             )
+    first_name = models.CharField(max_length=200,null=True, blank=True)
+    last_name = models.CharField(max_length=200,null=True, blank=True)
+    username = models.CharField(max_length=200,null=True, blank=True)
     profile_image = models.ImageField(null=True, blank=True, upload_to="images/")
-    bio = models.CharField(max_length=200,null=True, blank=True)
     jobs = models.CharField(max_length=200,null=True, blank=True)
-    phone_number = models.CharField(max_length=20,null=True, blank=True)
+    education = models.CharField(max_length=200, null=True, blank=True)
     skills = models.CharField(max_length=200,null=True, blank=True)
     
+    def followers_count(self):
+        return self.follows.count()
+
     def __str__(self):
-        return self.user.username    
+        return self.user.username 
 
 
 # Create automatical profile for user 

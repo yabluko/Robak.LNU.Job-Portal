@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout 
-from .models import Profile, Post
-from .forms import PostForm,SignUpForm
+from registrationapp.models import Profile, Post 
+from .forms import PostForm, SignUpForm, ProfilePicForm, ProfileUserForm
 from django.contrib.auth.models import User
 # Create your views here.
 
@@ -80,8 +80,9 @@ def profile(request, pk):
  
 def home(request):
     if request.user.is_authenticated:
-        form = PostForm(request.POST or None)
         username = request.user.username
+        form = PostForm(request.POST or None)
+        profile = Profile.objects.get(user__id=request.user.id)
         if request.method == "POST":
             if form.is_valid():
                 post = form.save(commit=False)
@@ -91,27 +92,33 @@ def home(request):
                 return redirect('home')
 
         posts = Post.objects.all().order_by("-created_at")
-        return render(request, 'home-page.html', {'posts': posts, 'form': form, 'username': username})
+        number_of_posts = posts.count()
+        # posts = Profile.objects.all()
+        # number_of_posts = posts.count()
+        return render(request, 'home-page.html', {'posts': posts, 'form': form, 'username': username, 'profile': profile,'number_of_posts':number_of_posts })
     else:
         messages.success(request, "Your must be log in!")
         posts = Post.objects.all().order_by("-created_at")
 
-    return render(request, 'home-page.html',{'posts': posts, 'username':username})
+    return render(request, 'home-page.html',{'posts': posts, 'user':username, 'profile':profile})
 
     
 def update_user(request):
     if request.user.is_authenticated:
         current_user = User.objects.get(id=request.user.id)
-        form = SignUpForm(request.POST or None, instance=current_user)
-        if form.is_valid():
-            form.save()
+        profile_user = Profile.objects.get(user__id=request.user.id)
+        
+        user_form = ProfileUserForm(request.POST or None , request.FILES or None, instance=profile_user)
+        profile_form_picture = ProfilePicForm(request.POST or None, request.FILES or None, instance=profile_user)
+        if user_form.is_valid() and profile_form_picture.is_valid():
+            user_form.save()
+            profile_form_picture.save()
+     
             login(request, current_user)
-            redirect(request, 'profile')
-        return render(request, 'update-user.html',{'form':form})
+            messages.success(request, "Your profile has been be updated", extra_tags='message-success')
+            return redirect('home')
 
+        return render(request, 'update-user.html',{'user_form': user_form, 'profile_form': profile_form_picture})
     else:
         messages.success(request, "Your must be log in!")
         return redirect('main')
-
-# def profile(request):
-#     return render(request, 'profile-page.html')    

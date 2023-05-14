@@ -3,12 +3,12 @@
 <link rel="stylesheet" href="{% static 'css/update-user.css'%}">
 
 <h1 class="change-title">Edit user profile</h1>
-<form action="" method="POST" class="main__form">
+<form action="" method="POST" class="main__form" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit"  class="registration__form__button">Sign in</button>
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+    <button type="submit"  class="registration__form__button">Save</button>
 
-    <p class="form__content">Already on LinkedIn?<a href="/" class="form__href"> Log in </a></p>
 </form>
 
 {% endblock %} 

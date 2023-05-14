@@ -20,11 +20,11 @@
 
                 <div class="main__profile__text">
                     {% if profile.profile_image %}
-                    <img src="{{ profile.profile_image.url }}">
+                    <img src="{{ profile.profile_image.url }}" class="main__profile__img">
                     {% else %}
                     <img src="/static/img/person-circle.jpg" >
                     {% endif %}
-                    
+                    <br>
                     <h1>{{ profile.user.username }}</h1>
                     
                     
