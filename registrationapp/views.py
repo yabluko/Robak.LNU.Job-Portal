@@ -93,8 +93,6 @@ def home(request):
 
         posts = Post.objects.all().order_by("-created_at")
         number_of_posts = posts.count()
-        # posts = Profile.objects.all()
-        # number_of_posts = posts.count()
         return render(request, 'home-page.html', {'posts': posts, 'form': form, 'username': username, 'profile': profile,'number_of_posts':number_of_posts })
     else:
         messages.success(request, "Your must be log in!")
