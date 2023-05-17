@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout 
 from registrationapp.models import Profile, Post 
-from .forms import PostForm, SignUpForm, ProfilePicForm, ProfileUserForm
+from .forms import PostForm, SignUpForm, ProfilePicForm, ProfileUserForm, UserCreationForm
 from django.contrib.auth.models import User
 # Create your views here.
 
@@ -11,14 +11,16 @@ def main(request):
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
                  
-        if user is not None:
-            login(request, user)
-            messages.success(request, ("You have been succesfully log in"), extra_tags='message-success')
-            return redirect('home')
-        else:
-            messages.success(request,("There was an error logging in .Please try again..."),extra_tags='message-error')
-            return redirect('main')
+            if user is not None:
+                login(request, user)
+                messages.success(request, ("You have been succesfully log in"), extra_tags='message-success')
+                return redirect('home')
+            else:
+                messages.success(request,("There was an error logging in .Please try again..."),extra_tags='message-error')
+                return redirect('main')
     else:    
         return render(request, 'initial-page.html')
 

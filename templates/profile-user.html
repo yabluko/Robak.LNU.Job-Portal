@@ -81,7 +81,10 @@
         
         
         {% endfor %}
+
+        {% if request.user.is_authenticated %}
         <a href="{% url 'logout' %}"> <h3>Log out</h3></a>
+        {% endif %}
     </div>
     
 </div>    
