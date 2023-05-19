@@ -11,16 +11,13 @@ def main(request):
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-                 
-            if user is not None:
-                login(request, user)
-                messages.success(request, ("You have been succesfully log in"), extra_tags='message-success')
-                return redirect('home')
-            else:
-                messages.success(request,("There was an error logging in .Please try again..."),extra_tags='message-error')
-                return redirect('main')
+        if user is not None:
+            login(request, user)
+            messages.success(request, ("You have been succesfully log in"), extra_tags='message-success')
+            return redirect('home')
+        else:
+            messages.success(request,("There was an error logging in .Please try again..."),extra_tags='message-error')
+            return redirect('main')
     else:    
         return render(request, 'initial-page.html')
 
@@ -62,7 +59,8 @@ def profile_list(request):
 def profile(request, pk):
     if request.user.is_authenticated:
         profile = Profile.objects.get(user_id=pk)
-
+        user_profile = profile.followed_by.all()
+        number_of_followers = user_profile.count()
         if request.method == 'POST':
             #Get current user
             current_user_profile = request.user.profile
@@ -74,7 +72,7 @@ def profile(request, pk):
                 current_user_profile.follows.add(profile)
             current_user_profile.save()            
 
-        return render(request,'profile-user.html', {'profile':profile} )
+        return render(request,'profile-user.html', {'profile':profile, 'number_of_followers': number_of_followers} )
     else:
         messages.success(request, ('You must be logged in '))
         return redirect('main')
@@ -82,9 +80,12 @@ def profile(request, pk):
  
 def home(request):
     if request.user.is_authenticated:
+        user = request.user
         username = request.user.username
         form = PostForm(request.POST or None)
         profile = Profile.objects.get(user__id=request.user.id)
+        user_profile = profile.followed_by.all()
+        number_of_followers = user_profile.count()
         if request.method == "POST":
             if form.is_valid():
                 post = form.save(commit=False)
@@ -92,10 +93,10 @@ def home(request):
                 post.save()
                 messages.success(request, "Your post has been posted!", extra_tags='message-success')
                 return redirect('home')
-
+            
         posts = Post.objects.all().order_by("-created_at")
-        number_of_posts = posts.count()
-        return render(request, 'home-page.html', {'posts': posts, 'form': form, 'username': username, 'profile': profile,'number_of_posts':number_of_posts })
+        user_posts = user.posts_user.all()
+        return render(request, 'home-page.html', {'posts': posts, 'form': form, 'username': username, 'profile': profile,'user_posts':user_posts,'number_of_followers': number_of_followers})
     else:
         messages.success(request, "Your must be log in!")
         posts = Post.objects.all().order_by("-created_at")
@@ -122,3 +123,7 @@ def update_user(request):
     else:
         messages.success(request, "Your must be log in!")
         return redirect('main')
+
+
+def vacancies(request):
+    return render(request, 'vacancies.html')

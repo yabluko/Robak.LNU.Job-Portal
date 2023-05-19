@@ -1,0 +1,143 @@
+ul{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+
+p {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+.main__container__vacancies{
+    
+    width: 1120px;
+    height: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
+.main__content__jobs{
+    flex-basis: 45%;
+    margin: 0 auto;
+}
+
+.main__content__vacancies{
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 8px 12px 5px 12px ;
+}
+
+.main__content__title h1{
+    font-size: 18px;
+}
+
+.main__content__text p{
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+
+.main__li__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main__list__ul li:last-child{
+    border-bottom: none;
+}
+
+.main__li__description{
+    margin-left: 10px;
+}
+
+.li__speciality{
+    font-size: 16px;
+    font-weight: 600;
+    color: #0a66c2;
+}
+
+.main__li__description p{
+    font-size: 14px;
+    color: black;
+}
+
+.main__list__li{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+    padding-top: 16px;
+    padding-bottom: 8px;
+}
+
+.main__li__icon{
+    margin-left: auto;
+}
+
+.left__button__href{
+    display: flex;
+    justify-content: center;
+    width: 120px;
+    padding: 12px;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 24px;
+    border: 1px solid #0a66c2;
+    color: #0a66c2;
+}
+
+
+.left__content__jobs{
+    flex-basis: 25%;
+    
+}
+
+.left__content{
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left__content__info{
+    margin-bottom: 10px;
+}
+
+
+.left__button__text{
+    font-size: 14px;
+    text-align: center;
+}
+
+.right__content__jobs{
+    flex-basis: 25%;
+}
+
+.right__content__info{
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+}
+.main__company__img{
+    width: 70px;
+    /* border-radius: 50%; */
+    background: #fff;
+    padding: 4px;
+}
+
+.li__geo{
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+}

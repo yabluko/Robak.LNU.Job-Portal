@@ -63,14 +63,14 @@ AUTHENTICATION_BACKENDS = [
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        }
-    }
+        'APP': {
+            'client_id': '435109422946-e6jp1pukgj1kn624036c1c8fkhj52gmq.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
+        },
+        'SCOPE': ['email', 'profile'],
+        'AUTH_PARAMS': {'access_type': 'online'}
+    },
 }
 
 MIDDLEWARE = [

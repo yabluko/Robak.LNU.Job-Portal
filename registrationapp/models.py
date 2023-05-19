@@ -8,8 +8,8 @@ from django import forms
 
 class Post(models.Model):
     user =  models.ForeignKey(
-        User, related_name="meeps",
-        on_delete=models.DO_NOTHING
+        User, related_name="posts_user",
+        on_delete=models.CASCADE
         )
     body = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -35,9 +35,8 @@ class Profile(models.Model):
     jobs = models.CharField(max_length=200,null=True, blank=True)
     education = models.CharField(max_length=200, null=True, blank=True)
     skills = models.CharField(max_length=200,null=True, blank=True)
+
     
-    def followers_count(self):
-        return self.follows.count()
 
     def __str__(self):
         return self.user.username 

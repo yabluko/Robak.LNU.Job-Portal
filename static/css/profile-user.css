@@ -117,3 +117,11 @@ p{
     align-items: center;
     padding: 15px;
 }
+
+.user__profile__img{
+    width: 90px;
+    border-radius: 50%;
+    background: #fff;
+    padding: 4px;
+    margin-top: -90px;
+}

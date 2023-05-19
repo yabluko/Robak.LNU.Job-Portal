@@ -22,7 +22,7 @@
                     {% if profile.profile_image %}
                     <img src="{{ profile.profile_image.url }}" class="main__profile__img">
                     {% else %}
-                    <img src="/static/img/person-circle.jpg" >
+                    <img src="/static/img/person-circle.jpg" class="user__profile__img">
                     {% endif %}
                     <br>
                     <h1>{{ profile.user.username }}</h1>
@@ -63,24 +63,21 @@
 
 <div class="side__profile">
     <div>
-        <strong> Follows </strong>
-        {% for following in profile.follows.all %}
+        <a href="#"><strong> Following </strong></a>
+        
        
-        <a href="{% url 'profile' following.user.id%}">  @{{ following }}  </a>
+         {{ profile.follows.count }}  
         
         
         
-        {% endfor %}
+
         <br>
         <br>
-        <strong>Followed by</strong>
-        {% for following in profile.followed_by.all %}
+        <a href="#"> <strong>Followers</strong> </a>
        
-        <a href="{% url 'profile' following.user.id%}">  @{{ following }}  </a>
+         {{ number_of_followers }}   
         
         
-        
-        {% endfor %}
 
         {% if request.user.is_authenticated %}
         <a href="{% url 'logout' %}"> <h3>Log out</h3></a>
