@@ -1,10 +1,22 @@
 {% extends 'navbar.html' %}
 {% load static %}
 {% block content %}
+
 <link rel="stylesheet" type="text/css" href="{% static 'css/vacancies.css' %}"> 
 <br>
 <br>
 <br>
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">
+                {{ message|safe }}
+                <a href="{% url 'vacancies' %}" class="close">x</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
 
 <div class="main__container__vacancies">
@@ -15,12 +27,13 @@
             Make your vacancion   
             </div>
             <div class="left__button__create">
-                <a href="" class="left__button__href">
+                <a href="{% url 'vacancies_creation'  %}" class="left__button__href">
     
                    <div class="left__notes__img"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                     <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                  </svg></div>
+                  </svg>
+                </div>
     
                     <div class="left__button__text">Create Vacancion</div>
     
@@ -92,6 +105,42 @@
                                   </svg>
                             </div>
                         </div>
+                    </li>
+                    <li class="main__list__li">
+                        <div class="main__li__wrapper">
+                            <div class="main__li__logo">
+                                <img src="/static/img/unnamed.jpg" class="main__company__img">
+                            </div>
+                            <div class="main__li__description">
+                                <span class="li__speciality">Sales Account Executive</span>
+                                <p>Revenue Grid</p>
+                                <span class="li__geo">Warsaw , Poland</span>
+                            </div>
+                            <div class="main__li__icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
+                                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+                                  </svg>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="main__list__li">
+                        {% for vac in vacancy %}
+                        <div class="main__li__wrapper">
+                            <div class="main__li__logo">
+                                <img src="/static/img/unnamed.jpg" class="main__company__img">
+                            </div>
+                            <div class="main__li__description">
+                                <span class="li__speciality">{{ vacancy.position }}</span>
+                                <p>{{ vacancy.company }}</p>
+                                <span class="li__geo">Warsaw , Poland</span>
+                            </div>
+                            <div class="main__li__icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
+                                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
+                                  </svg>
+                            </div>
+                        </div>
+                        {% endfor %}
                     </li>
                 </ul>
 

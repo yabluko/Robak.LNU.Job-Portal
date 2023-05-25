@@ -96,6 +96,9 @@ p {
     color: #0a66c2;
 }
 
+.left__button__href:hover{
+    background-color: #0073b138;
+}
 
 .left__content__jobs{
     flex-basis: 25%;
@@ -140,4 +143,35 @@ p {
 .li__geo{
     font-size: 14px;
     color: rgba(0, 0, 0, 0.6);
+}
+
+.message-success{
+    background-color: #ccebd2;
+    color: #3c763d;
+    border: 2px solid #ccebd2;
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+}
+
+
+.message-error {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 2px solid #ebccd1;
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
 }

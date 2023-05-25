@@ -1,0 +1,86 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/vacancies-creation.css' %}">
+    <link rel="icon" type="/img/png" href="/static/img/linkedin_logo.png">
+    <title>Vacancies-creation</title>
+</head>
+<body>
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">
+                {{ message|safe }}
+                <a href="{% url 'vacancies' %}" class="close">x</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+        <header class="header">
+    
+            <div class="header__container">
+                <div class="header__logo" >
+                    <a href="{% url 'home' %}">
+                    <img src="/static/img/logo.png" alt="" class="logoimg">
+                    </a>
+    
+                </div>
+                <div class="header__account">
+                    <a href="{% url 'profile' request.user.id %}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                        </svg>
+
+                    </a>
+    
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="main__container">
+                <div class="main__form"> 
+                    <h1>Post a job now</h1>
+                     <form action="" method="POST" class="form">
+                        {{ vacancy_form }}
+                         {% csrf_token %}
+                        <!-- <label for="form__position">Position</label>
+                        {{ vacancy_form.position }}
+                        <label for="form__company">Company</label>
+                        {{ vacancy_form.company }}
+                        <label for="form__type-workplace">Type of workplace</label>
+                        {{ vacancy_form.type_of_workplace }}
+                        <label for="form__vacancy-region">Vacancy Region</label>
+                        {{ vacancy_form.vacancy_region }}
+                        <label for="type_of_employment">Type of Employment</label>
+                        {{ vacancy_form.type_of_employment}}   -->
+                        <button class="registration__form__button" type="submit">
+                                Save
+                        </button>    
+                     </form>
+                    
+
+                    
+                </div>
+    
+            </div>
+    
+        </main>
+        <footer>
+            <div class="footer">
+                <div class="header__container">
+                    <div class="footer__text">
+                        <p>LinkedInClone © 2023</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+</body>
+</html>

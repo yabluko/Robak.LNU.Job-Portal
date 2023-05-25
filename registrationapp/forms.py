@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import User, Post , Profile
+from .models import User, Post , Profile , Vacancy
 from django.contrib.auth.forms import UserCreationForm
 
 class ProfileUserForm(forms.ModelForm):
@@ -33,7 +33,13 @@ class PostForm(forms.ModelForm):
     )
     class Meta:
         model = Post
-        exclude = ("user",)
+        exclude = ("user",) 
+
+
+class VacancyForm(forms.ModelForm):
+    class Meta:
+        model = Vacancy
+        fields = ('position', 'company', 'type_of_workplace', 'vacancy_region', 'type_of_employment')
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(label='Email',widget=forms.TextInput(attrs={'class':'registration__form__input'}))

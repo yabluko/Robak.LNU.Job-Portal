@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout 
-from registrationapp.models import Profile, Post 
-from .forms import PostForm, SignUpForm, ProfilePicForm, ProfileUserForm, UserCreationForm
+from registrationapp.models import Profile, Post , Vacancy
+from .forms import PostForm, SignUpForm, ProfilePicForm, ProfileUserForm, VacancyForm
 from django.contrib.auth.models import User
 # Create your views here.
 
@@ -126,4 +126,25 @@ def update_user(request):
 
 
 def vacancies(request):
-    return render(request, 'vacancies.html')
+    # vacancy = Vacancy.objects.get(user__id=request.user.id)
+    vacancy = Vacancy.objects.all()
+    return render(request, 'vacancies.html', {'vacancy':vacancy})
+
+def vacancies__creating(request):
+    if request.user.is_authenticated:
+        vacancy_form = VacancyForm()
+        if request.method == 'POST':
+            vacancy_form = VacancyForm(request.POST)
+            if vacancy_form.is_valid():
+                job = vacancy_form.save() 
+                job.user = request.user
+                job.save()
+                messages.success(request, ("Your vacancy posted"), extra_tags='message-success')
+                return redirect('vacancies')
+            else:
+                messages.success(request, ("Your vacancy wasn't posted"), extra_tags='message-error')
+                return redirect('vacancies-creation')    
+            
+    else :
+        vacancy_form = VacancyForm()        
+    return render(request, 'vacancies-creation.html', {'vacancy_form': vacancy_form})

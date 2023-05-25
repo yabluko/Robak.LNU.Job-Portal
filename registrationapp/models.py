@@ -42,6 +42,20 @@ class Profile(models.Model):
         return self.user.username 
 
 
+class Vacancy(models.Model):
+    user = models.ForeignKey(User, related_name="vacacncy_of_user",
+        on_delete=models.CASCADE , null=True, blank=True)
+    position = models.CharField(max_length=200,null=True, blank=False)     
+    company = models.CharField(max_length=200,null=True, blank=False)     
+    type_of_workplace = models.CharField(max_length=200,null=True, blank=False)     
+    vacancy_region = models.CharField(max_length=200,null=True, blank=False)     
+    type_of_employment = models.CharField(max_length=200,null=True, blank=False)      
+    
+    def __str__(self):         
+        return self.user.username
+
+
+
 # Create automatical profile for user 
 def create_profile(sender, instance, created, **kwargs):
     if created:

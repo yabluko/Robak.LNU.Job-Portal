@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['*']
 
 # settings.py
 
-CSRF_TRUSTED_ORIGINS = ['https://linkedinclone.up.railway.app']
+# CSRF_TRUSTED_ORIGINS = ['https://linkedinclone.up.railway.app']
 
 # Application definition
 
@@ -113,11 +113,9 @@ WSGI_APPLICATION = 'job_portal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': '2OZFZziyY7wGDSF5f1Cl',
-        'HOST' : 'containers-us-west-134.railway.app',
-        'PORT':'6148'
+        'NAME': 'JOB_DB',
+        'USER': 'yabko',
+        'PASSWORD': 'kek1234',
     }
 }
 
