@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect , get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout 
 from registrationapp.models import Profile, Post , Vacancy
@@ -80,12 +80,11 @@ def profile(request, pk):
  
 def home(request):
     if request.user.is_authenticated:
-        user = request.user
-        username = request.user.username
         form = PostForm(request.POST or None)
         profile = Profile.objects.get(user__id=request.user.id)
-        user_profile = profile.followed_by.all()
-        number_of_followers = user_profile.count()
+        user = request.user
+        user_profile_follows = profile.followed_by.all()
+        number_of_followers = user_profile_follows.count()
         if request.method == "POST":
             if form.is_valid():
                 post = form.save(commit=False)
@@ -96,12 +95,12 @@ def home(request):
             
         posts = Post.objects.all().order_by("-created_at")
         user_posts = user.posts_user.all()
-        return render(request, 'home-page.html', {'posts': posts, 'form': form, 'username': username, 'profile': profile,'user_posts':user_posts,'number_of_followers': number_of_followers})
+        return render(request, 'home-page.html', {'posts': posts,'form': form, 'profile': profile, 'number_of_followers':number_of_followers , 'user_posts':user_posts})
     else:
         messages.success(request, "Your must be log in!")
         posts = Post.objects.all().order_by("-created_at")
 
-    return render(request, 'home-page.html',{'posts': posts, 'user':username, 'profile':profile})
+    return render(request, 'home-page.html',{'posts': posts, 'profile':profile ,'number_of_followers':number_of_followers , 'user_posts':user_posts})
 
     
 def update_user(request):
@@ -127,8 +126,9 @@ def update_user(request):
 
 def vacancies(request):
     # vacancy = Vacancy.objects.get(user__id=request.user.id)
+    profile = Profile.objects.get(user__id=request.user.id)
     vacancy = Vacancy.objects.all()
-    return render(request, 'vacancies.html', {'vacancy':vacancy})
+    return render(request, 'vacancies.html', {'vacancy': vacancy , 'profile': profile})
 
 def vacancies__creating(request):
     if request.user.is_authenticated:
@@ -148,3 +148,9 @@ def vacancies__creating(request):
     else :
         vacancy_form = VacancyForm()        
     return render(request, 'vacancies-creation.html', {'vacancy_form': vacancy_form})
+
+
+
+
+def post_likes(request, pk):
+    post = get_object_or_404(Post, id=pk)

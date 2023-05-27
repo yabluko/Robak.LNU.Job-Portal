@@ -1,10 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractUser
 from django.db.models.signals import post_save
 from django import forms
 
 # Create your models here.
-
 
 class Post(models.Model):
     user =  models.ForeignKey(
@@ -13,6 +12,11 @@ class Post(models.Model):
         )
     body = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
+    likes = models.ManyToManyField(User, related_name='post_likes', blank=True)
+
+
+    def likes_count(self):
+        return self.likes.count()
 
     def __str__(self) -> str:
         return (
@@ -43,7 +47,7 @@ class Profile(models.Model):
 
 
 class Vacancy(models.Model):
-    user = models.ForeignKey(User, related_name="vacacncy_of_user",
+    user = models.ForeignKey(User, related_name="vacancy_of_user",
         on_delete=models.CASCADE , null=True, blank=True)
     position = models.CharField(max_length=200,null=True, blank=False)     
     company = models.CharField(max_length=200,null=True, blank=False)     

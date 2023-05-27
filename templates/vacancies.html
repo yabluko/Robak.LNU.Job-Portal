@@ -123,16 +123,16 @@
                             </div>
                         </div>
                     </li>
+                    {% for vac in vacancy %}
                     <li class="main__list__li">
-                        {% for vac in vacancy %}
                         <div class="main__li__wrapper">
                             <div class="main__li__logo">
                                 <img src="/static/img/unnamed.jpg" class="main__company__img">
                             </div>
                             <div class="main__li__description">
-                                <span class="li__speciality">{{ vacancy.position }}</span>
-                                <p>{{ vacancy.company }}</p>
-                                <span class="li__geo">Warsaw , Poland</span>
+                                <span class="li__speciality">{{ vac.position }}</span>
+                                <p>{{ vac.company }}</p>
+                                <span class="li__geo">{{ vac.vacancy_region  }}</span>
                             </div>
                             <div class="main__li__icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
@@ -140,8 +140,8 @@
                                   </svg>
                             </div>
                         </div>
-                        {% endfor %}
                     </li>
+                    {% endfor %}
                 </ul>
 
 

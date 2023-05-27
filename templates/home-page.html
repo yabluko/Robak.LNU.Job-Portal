@@ -47,11 +47,20 @@
                 <h3>{{ profile.education }}</h3>
                 <h3>{{ profile.jobs }}</h3>
 
-                <ul>
+                <ul class="left-sidebar-ul">
 
-                    <li>Your profile subscribers <span>{{ number_of_followers }}</span></li>
-                    <li>Your posts <span>{{ user_posts.count }}</span></li>
-                    <li>Your connections <span></span></li>
+                    <li class="left-sidebar-li">Your profile subscribers <div class="left-sidebar-numbers-followers">{{ number_of_followers }}</div></li>
+                    <li class="left-sidebar-li">Your posts <div class="left-sidebar-numbers-posts">{{ user_posts.count }} </div></li>
+                    <li class="left-sidebar-li"> 
+                        Your elements 
+                        <div class="left-sidebar-numbers">
+                                <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-fill" viewBox="0 0 16 16">
+                                    <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/>
+                                </svg>
+                            </a> 
+                            </div>
+                    </li>
 
                 </ul>
 
@@ -68,7 +77,7 @@
         <div class="main__content__post">
             <div class="main__content__input">
                 {% if profile.profile_image %}
-                <img src="{{ profile.profile_image.url }}" width="42px" height="42px">
+                <img src="{{ profile.profile_image.url }}" class="main__post__img">
                 {% else %}
                 <img src="/static/img/person-circle.jpg" alt="">
                 {% endif %}
@@ -129,18 +138,33 @@
         </div>
 
         <div class="post">
-            
                 {% for post in posts %}
-
                 <div class="post__user">
-                    {{ post.body }} <br>
-                    <small>
-                        <span class="post__text">{{ post.created_at }} </span> By
-                        @{{ post.user.username }} <br>
-                    </small>
+                    <div class="post__bio">
+
+                        <div class="post__user__profile">
+                            {% if  post.user.profile.profile_image %}
+                            <a href="{% url 'profile' post.user.id %}"><img src="{{ post.user.profile.profile_image.url }}" class="post__profile__img"></a>
+                            {% else %}
+                            <a href="{% url 'profile' post.user.id %}"><img src="/static/img/person-circle.jpg" class="post__profile__img"></a>
+                            {% endif %}
+                        </div>
+
+                        <div class="post__text">
+
+                            <a href="{% url 'profile' post.user.id %}"><span>{{ post.user.username }}</span></a>
+                            <br>
+                            {{ post.created_at }} 
+                            
+                        </div>
+
+                    </div>
+
+                    <div class="post__body">
+                        {{ post.body }} <br>
+                    </div>
+                    
                 </div>
-                <br>
-                <br>
                 <br>
                 {% endfor %}
 
@@ -187,7 +211,15 @@
 
             </div>
 
-    </div>
+            
+            <div class="right-sidebar-hiring ">
+                
+                <a href="#">
+                    <img src="/static/img/hiring.png" alt="" class="right-sidebar-img">
+                </a>
+            </div>
+        </div>
+
         
 </div> 
 {% endblock %}  

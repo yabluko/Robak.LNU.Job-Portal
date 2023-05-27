@@ -17,7 +17,6 @@ p{
 }
 
 .main__container{
-    
     width: 1120px;
     height: 800px;
     margin: 0 auto;
@@ -43,10 +42,11 @@ p{
 
 }
 
-.main__content__input img{
-      width: 35px;
-      border-radius: 50%;
-      margin-right: 10px;
+.main__post__img{
+    width: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 1px solid black;
 }
 
 .main__content__input textarea{
@@ -79,8 +79,9 @@ p{
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    border-top: 1px solid black;
-    border-right: 1px solid black;
+    border-top: 1px solid rgb(0, 0, 0, 0.3);
+    border-right: 1px solid rgb(0, 0, 0, 0.3);
+
 }
 
 .main__list li:last-child{
@@ -102,6 +103,20 @@ p{
     max-height: 515.9px;
 }
 
+.left-sidebar-li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.left-sidebar-numbers-posts{
+    margin-right: 5px;
+}
+
+.left-sidebar-numbers-followers{
+    margin-right: 5px;
+}
 
 .sidebar-profile-box{
     background-color: #fff;
@@ -220,9 +235,23 @@ p{
     flex-direction: column;
 }
 
+.right-sidebar-li:hover button{
+    background-color: #777;
+
+}
 .right-sidebar-ul{
     padding: 10px;
 }
+
+
+.right-sidebar-img{
+    width: 300px;
+    height: 250px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+
 
 .submit-button{
         background-color: white;
@@ -241,7 +270,10 @@ p{
 .form__post{
     display: flex;
     flex-direction: row;
+    font-size: 14px ;
+    font-family: 'AvenirNext', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
 
 
 
@@ -268,14 +300,37 @@ p{
     font-size: 12px;
     font-weight: 200;
 }
+.post__bio{
+    margin-bottom: 7px;
+}
 
 .post__user{
+
     background-color: #fff;
     border-radius: 5px;
     padding: 10px;
+
 }
 
-  
+.post img{
+    border-radius: 50%;
+}
+
+.post__user__profile {
+    width: 50px;
+}
+
+.post__bio{
+    display: flex;
+    flex-direction: row;
+}
+
+.post__text span{
+    font-size: 14px;
+    color: black;
+    font-weight: 500;
+}
+
 .message-success.success{
     background-color: #ccebd2;
     color: #3c763d;
@@ -297,4 +352,12 @@ p{
     background: #fff;
     padding: 4px;
     margin-top: -70px;
+}
+
+
+
+.post__profile__img{
+    width: 35px;
+    border: 1px solid black;
+    
 }
