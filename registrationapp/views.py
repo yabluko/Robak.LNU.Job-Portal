@@ -94,8 +94,9 @@ def home(request):
                 return redirect('home')
             
         posts = Post.objects.all().order_by("-created_at")
+        post_popularity = Post.objects.all().order_by("likes")
         user_posts = user.posts_user.all()
-        return render(request, 'home-page.html', {'posts': posts,'form': form, 'profile': profile, 'number_of_followers':number_of_followers , 'user_posts':user_posts})
+        return render(request, 'home-page.html', {'posts': posts,'form': form, 'profile': profile, 'number_of_followers':number_of_followers , 'user_posts':user_posts ,'post_popularity':post_popularity})
     else:
         messages.success(request, "Your must be log in!")
         posts = Post.objects.all().order_by("-created_at")
@@ -153,4 +154,14 @@ def vacancies__creating(request):
 
 
 def post_likes(request, pk):
-    post = get_object_or_404(Post, id=pk)
+    if request.user.is_authenticated:
+        post = get_object_or_404(Post, id=pk)
+        if post.likes.filter(id=request.user.id):
+            post.likes.remove(request.user)
+        else:
+            post.likes.add(request.user)
+        return redirect('home')        
+
+    else:
+        messages.success(request, "Your must be log in!")
+        return redirect('main')

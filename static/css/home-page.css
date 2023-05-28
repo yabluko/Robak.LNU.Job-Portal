@@ -325,6 +325,20 @@ p{
     flex-direction: row;
 }
 
+.post__like{
+    display: flex;
+}
+
+.post__heart{
+    margin-left: 10px;
+}
+
+.likes{
+    font-size: 15px;
+    color: #777;
+    font-weight: 500;
+}
+
 .post__text span{
     font-size: 14px;
     color: black;
