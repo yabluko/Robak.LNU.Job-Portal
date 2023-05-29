@@ -13,4 +13,5 @@ urlpatterns = [
     path('vacancies', views.vacancies, name='vacancies'),
     path('vacancies/creation', views.vacancies__creating, name='vacancies_creation'),
     path('post_likes/<int:pk>', views.post_likes , name="post_likes" ),
+    path('vacancies/recommended', views.vacancies_recommended, name='vacancies_recommended')
 ]

@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect , get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout 
+from django.urls import reverse
 from registrationapp.models import Profile, Post , Vacancy
-from .forms import PostForm, SignUpForm, ProfilePicForm, ProfileUserForm, VacancyForm
+from .forms import PostForm, SignUpForm, ProfilePicForm, ProfileUserForm, VacancyForm, OrderPostForm
 from django.contrib.auth.models import User
 # Create your views here.
 
@@ -75,16 +76,26 @@ def profile(request, pk):
         return render(request,'profile-user.html', {'profile':profile, 'number_of_followers': number_of_followers} )
     else:
         messages.success(request, ('You must be logged in '))
-        return redirect('main')
-
+        return redirect('main')    
  
 def home(request):
     if request.user.is_authenticated:
+        order_by = request.GET.get('order_by', 'default')
+        if order_by == 'likes':
+            posts = Post.objects.all().order_by('likes')
+        elif order_by == '-created_at':
+            posts = Post.objects.all().order_by('-created_at')
+        else:
+            posts = Post.objects.all().order_by('-created_at')
+
         form = PostForm(request.POST or None)
         profile = Profile.objects.get(user__id=request.user.id)
         user = request.user
         user_profile_follows = profile.followed_by.all()
         number_of_followers = user_profile_follows.count()
+        current_url = reverse('home')
+
+
         if request.method == "POST":
             if form.is_valid():
                 post = form.save(commit=False)
@@ -93,15 +104,11 @@ def home(request):
                 messages.success(request, "Your post has been posted!", extra_tags='message-success')
                 return redirect('home')
             
-        posts = Post.objects.all().order_by("-created_at")
-        post_popularity = Post.objects.all().order_by("likes")
         user_posts = user.posts_user.all()
-        return render(request, 'home-page.html', {'posts': posts,'form': form, 'profile': profile, 'number_of_followers':number_of_followers , 'user_posts':user_posts ,'post_popularity':post_popularity})
+        return render(request, 'home-page.html', {'form': form, 'profile': profile, 'number_of_followers':number_of_followers , 'user_posts':user_posts , 'posts':posts,'current_url':current_url})
     else:
         messages.success(request, "Your must be log in!")
-        posts = Post.objects.all().order_by("-created_at")
-
-    return render(request, 'home-page.html',{'posts': posts, 'profile':profile ,'number_of_followers':number_of_followers , 'user_posts':user_posts})
+        return render(request, 'home-page.html')
 
     
 def update_user(request):
@@ -165,3 +172,7 @@ def post_likes(request, pk):
     else:
         messages.success(request, "Your must be log in!")
         return redirect('main')
+
+
+def vacancies_recommended(request):
+    return render(request, 'vacancies-recomend.html')

@@ -35,6 +35,13 @@ class PostForm(forms.ModelForm):
         model = Post
         exclude = ("user","likes") 
 
+ALGORITHM_CHOICES = [
+    ('P', 'POPULARITY'),
+    ('L', 'LATEST'),
+]
+
+class OrderPostForm(forms.Form):
+    algorithm = forms.CharField(label='Select your sorting algorithm', widget=forms.Select(choices=ALGORITHM_CHOICES))
 
 class VacancyForm(forms.ModelForm):
     class Meta:

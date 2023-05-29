@@ -131,11 +131,19 @@
         </div>
         <div class="sort-by">
             <hr>
-            <p>Sort by</p>
+            <form action="{% url 'home' %}" method="get">
+                <select name="order_by">
+                    <option value="-created_at" >За останніми</option>
+                    <option value="likes">За популярністю</option>
+                </select>
+                <button type="submit">Сортувати</button>
+            </form>
+            
         </div>
             
         <div class="post">
-                {% for post in post_popularity %}
+            
+                {% for post in posts %}
                 <div class="post__user">
                     <div class="post__bio">
 
@@ -193,8 +201,7 @@
                     {% endif %}
                 </div>
                 <br>
-                {% endfor %}
-
+                {% endfor %}  
         
         </div>
 
