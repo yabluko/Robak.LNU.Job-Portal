@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect , get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout 
 from django.urls import reverse
-from registrationapp.models import Profile, Post , Vacancy
+from registrationapp.models import Profile, Post , Vacancy, Company, CompanyProfile
 from .forms import PostForm, SignUpForm, ProfilePicForm, ProfileUserForm, VacancyForm, OrderPostForm
 from django.contrib.auth.models import User
 # Create your views here.
@@ -60,8 +60,10 @@ def profile_list(request):
 def profile(request, pk):
     if request.user.is_authenticated:
         profile = Profile.objects.get(user_id=pk)
+        posts = Post.objects.filter(user_id=pk)
         user_profile = profile.followed_by.all()
         number_of_followers = user_profile.count()
+
         if request.method == 'POST':
             #Get current user
             current_user_profile = request.user.profile
@@ -73,7 +75,7 @@ def profile(request, pk):
                 current_user_profile.follows.add(profile)
             current_user_profile.save()            
 
-        return render(request,'profile-user.html', {'profile':profile, 'number_of_followers': number_of_followers} )
+        return render(request,'profile-user.html', {'profile':profile, 'number_of_followers': number_of_followers, 'posts':  posts} )
     else:
         messages.success(request, ('You must be logged in '))
         return redirect('main')    
@@ -141,6 +143,7 @@ def vacancies(request):
 def vacancies__creating(request):
     if request.user.is_authenticated:
         vacancy_form = VacancyForm()
+        # company_form_picture = ProfilePicForm(request.POST or None, request.FILES or None, instance=profile_user)
         if request.method == 'POST':
             vacancy_form = VacancyForm(request.POST)
             if vacancy_form.is_valid():
@@ -174,5 +177,16 @@ def post_likes(request, pk):
         return redirect('main')
 
 
-def vacancies_recommended(request):
-    return render(request, 'vacancies-recomend.html')
+def vacancies_recommended(request, vacancy_pk):
+    if request.user.is_authenticated:
+
+        vacancy = Vacancy.objects.get(id=vacancy_pk)
+        company_profile = CompanyProfile.objects.get(company_id=vacancy.company.id)
+        vacancies_all = Vacancy.objects.all()
+        
+        
+    else:  
+        return redirect('home')
+    
+    
+    return render(request, 'vacancies-recomend.html', {'vacancy':vacancy , 'vacancies_all':vacancies_all, 'company_profile':company_profile})

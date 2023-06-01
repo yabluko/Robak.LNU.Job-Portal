@@ -8,6 +8,15 @@ p{
     margin-block-end: 0em;
     
 }
+
+ul{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+
 .main__container{
     width: 1120px;
     height: 800px;
@@ -20,6 +29,9 @@ p{
 
 .main__profile{
     flex-basis: 70%; 
+}
+
+.main__profile__info{
     background-color: #fff;
     border-radius: 5px;
 }
@@ -31,9 +43,6 @@ p{
     border-radius: 5px;
 }
 
-.main__profile__text{
-    padding: 15px;
-}
 .main__profile__img {
     width: 90px;
     border-radius: 50%;
@@ -42,12 +51,24 @@ p{
     margin-top: -90px;
 }
 
-.main__profile__text h1{
-    font-size: 24px;
-}
-.main__profile__text b {
+.main__profile__job{
     font-size: 16px;
-    font-weight: 300;
+}
+
+.main__profile__content{
+    width: 400px;
+    padding: 15px;
+}
+
+.main__profile__bio{
+    font-size: 18px;
+}
+
+.main__profile__posts{
+    margin-top: 15px;
+    background-color:#fff;
+    padding: 20px;
+    border-radius: 5px;
 }
 
 .side__profile{
@@ -107,6 +128,26 @@ p{
     box-shadow: 0 4px 4px rgba(255, 83, 83, 0.32);
 }
 
+.post__content{
+    display: flex;
+    flex-direction: column;
+}
+.post__content span{
+    font-weight: 600;
+}
+
+.post__content hr{
+    flex: 1;
+    border: 0;
+    height: 1px;
+    color: rgba(0, 0, 0, 0.12);
+}
+
+.post__title{
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
 .main__profile__wrappper{
     display: flex;
     justify-content: space-between;
@@ -124,4 +165,46 @@ p{
     background: #fff;
     padding: 4px;
     margin-top: -90px;
+}
+
+.main__profile__logoedit{
+    display: flex;
+    align-items: center;
+    padding: 7px;
+}
+
+.main__profile__logoedit:hover{
+    border-radius: 50%;
+    background-color: rgba(204, 204, 204, 0.714);
+    transition: 0.3ms;
+
+}
+
+.main__profile__logoedit a{
+    width: 24px;
+    height: 24px;
+}
+
+.main__profile__follows{
+    margin-top: 5px;
+}
+.main__profile__ul{
+    display: flex;
+    font-size: 14px;
+}
+
+.main__profile__ul span{
+    font-weight: 500;
+}
+
+.main__profile__li:last-child{
+    margin-left: 5px;
+}
+
+.main__posts hr{
+    color: rgba(0, 0, 0, 0.12);
+}
+
+.main__posts__text{
+    margin-bottom: 5px;
 }

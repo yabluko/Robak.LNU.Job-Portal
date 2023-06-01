@@ -5,26 +5,6 @@ from django import forms
 
 # Create your models here.
 
-class Post(models.Model):
-    user =  models.ForeignKey(
-        User, related_name="posts_user",
-        on_delete=models.CASCADE
-        )
-    body = models.CharField(max_length=200)
-    created_at = models.DateTimeField(auto_now_add=True)
-    likes = models.ManyToManyField(User, related_name='post_likes', blank=True)
-
-
-    def likes_count(self):
-        return self.likes.count()
-
-    def __str__(self) -> str:
-        return (
-            f"{self.user}"
-            f"({self.created_at: %Y-%m-%d %H:%M}): "
-            f"{self.body}..."
-        )
-
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     follows = models.ManyToManyField("self",
@@ -40,27 +20,73 @@ class Profile(models.Model):
     education = models.CharField(max_length=200, null=True, blank=True)
     skills = models.CharField(max_length=200,null=True, blank=True)
 
-    
 
     def __str__(self):
         return self.user.username 
 
+    
+class Company(models.Model):
+    name = models.CharField(max_length=200, null=True, blank=False)
+    logo = models.ImageField(null=True, blank=True, upload_to="images/")
+
+    def __str__(self):
+        return self.name
+    
+
+class CompanyProfile(models.Model):
+    company = models.OneToOneField(Company,on_delete=models.CASCADE, null=True, blank=False)
+    follows = models.ManyToManyField(User,
+            related_name="followed_companies",
+            symmetrical=False,     
+            blank=True
+            )
+    company_referral = models.CharField(max_length=200, null=True,blank=False)
+    company_location = models.CharField(max_length=200, null=True, blank=False)
+
+    def __str__(self) -> str:
+        return self.company.name
+
 
 class Vacancy(models.Model):
-    user = models.ForeignKey(User, related_name="vacancy_of_user",
-        on_delete=models.CASCADE , null=True, blank=True)
+    company = models.ForeignKey(Company, related_name="vacancy_of_company", on_delete=models.CASCADE ,null=True, blank=False)
     position = models.CharField(max_length=200,null=True, blank=False)     
-    company = models.CharField(max_length=200,null=True, blank=False)     
     type_of_workplace = models.CharField(max_length=200,null=True, blank=False)     
     vacancy_region = models.CharField(max_length=200,null=True, blank=False)     
     type_of_employment = models.CharField(max_length=200,null=True, blank=False)      
-    
-    def __str__(self):         
-        return self.user.username
+    bio_vacancy = models.TextField(null=True, blank=False)
+    date_created = models.DateField(auto_now=True)
+    skills = models.CharField(max_length=200,null=True, blank=False)
 
 
+    def __str__(self):             
+        return f"{self.company.name} - {self.position}"
 
-# Create automatical profile for user 
+
+class Post(models.Model):
+    user =  models.ForeignKey(
+        User, related_name="posts_user",
+        on_delete=models.CASCADE
+        )
+    company = models.ForeignKey(
+        Company, related_name="posts_company",
+        on_delete=models.CASCADE, null=True, blank=True
+    )
+    body = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+    likes = models.ManyToManyField(User, related_name='post_likes', blank=True)
+
+
+    def likes_count(self):
+        return self.likes.count()
+
+    def __str__(self) -> str:
+        return (
+            f"{self.user}"
+            f"({self.created_at: %Y-%m-%d %H:%M}): "
+            f"{self.body}..."
+        )
+
+# Create automatical profile for user
 def create_profile(sender, instance, created, **kwargs):
     if created:
         user_profile = Profile(user=instance)
@@ -69,3 +95,11 @@ def create_profile(sender, instance, created, **kwargs):
         user_profile.save()
 
 post_save.connect(create_profile, sender=User)
+
+
+def create_profile_of_company(sender, instance, created, **kwargs):
+    if created:
+        company_profile = CompanyProfile(company=instance)
+        company_profile.save()
+
+post_save.connect(create_profile_of_company, sender=Company)        

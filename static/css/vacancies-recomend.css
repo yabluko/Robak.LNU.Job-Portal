@@ -1,6 +1,20 @@
-h1{
+h1, h2{
     margin-block-start: 0em;
     margin-block-end: 0em;
+}
+
+
+p{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+ul{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
 }
 
 
@@ -16,20 +30,112 @@ h1{
 
 .leftside{
     background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0,0,0,0.12);
+    border-right: none;
     border-radius: 5px;
-    width: 450px;
+    width: 386px;
+    height: 652px;
+    /* overflow: scroll; */
+
 }
 
 .leftside__title {
     background-color: #0a66c2;
     color: #fff;
     padding: 8px;
-    
+    border-top-left-radius: 5px;
+    border-bottom: none;
 }
 
 .leftside__title h1{
-
     font-size: 16px;
     font-weight: 400;
 }
+
+.leftside__title p{
+    font-size:12px ;
+}
+
+.lefside__company__img{
+    max-width: 54px;
+    height: 54px;
+
+}
+
+/* .leftside__li__description span{
+    font-size: 16px;
+    font-weight: 600;
+    color: #0a66c2;
+} */
+
+.leftside__li__logo{
+    margin: 10px 10px 0px 10px;
+
+}
+
+#leftside__li__wrapper {
+    cursor: pointer;
+    display: flex;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+.leftside__li__description{
+    width: 270px;
+    padding: 3px;
+}
+
+.leftside__li__description a{
+    font-size: 16px;
+    font-weight: 900;
+    color: #0a66c2;
+}
+
+.leftside__li__description p{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.leftside__li__country{
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 7px;
+}
+
+.leftside__li__time{
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.left__li__icon{
+    display: flex;
+    align-items: center;
+}
+
+.rightside{
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.12);
+    width: 650px;
+    height: 652px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow: scroll;
+}
+
+
+.job__content h2{
+    font-size: 24px;
+
+}
+
+.job__content{
+    padding: 25px ;
+}
+
+/* 
+.job__description{
+    font-size: 16px;
+}
+
+.job__info{
+    font-size: 16px;
+    font-weight: 300;
+} */

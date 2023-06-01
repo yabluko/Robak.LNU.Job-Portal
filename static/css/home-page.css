@@ -254,11 +254,11 @@ p{
 
 
 .submit-button{
-        background-color: white;
-        color: black;
-        border: 2px solid #e7e7e7;
-        border-radius: 5px;
-        font-family: 'AvenirNext', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+    border-radius: 5px;
+    font-family: 'AvenirNext', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
         
 }
 
@@ -281,8 +281,8 @@ p{
     display: flex;
     align-items: center;
     margin: 10px 0;
-
 }
+
 .sort-by p {
     font-size: 14px;
     margin-left: 5px;
@@ -373,5 +373,4 @@ p{
 .post__profile__img{
     width: 35px;
     border: 1px solid black;
-    
 }
