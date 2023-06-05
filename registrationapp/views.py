@@ -180,13 +180,43 @@ def post_likes(request, pk):
 def vacancies_recommended(request, vacancy_pk):
     if request.user.is_authenticated:
 
+        vacancies_all = Vacancy.objects.all()
         vacancy = Vacancy.objects.get(id=vacancy_pk)
         company_profile = CompanyProfile.objects.get(company_id=vacancy.company.id)
-        vacancies_all = Vacancy.objects.all()
-        
+        # recomendation_algorithm(vacancies_all,vacancy)
         
     else:  
         return redirect('home')
     
     
     return render(request, 'vacancies-recomend.html', {'vacancy':vacancy , 'vacancies_all':vacancies_all, 'company_profile':company_profile})
+
+def favourites(request , id ):
+    if request.user.is_authenticated:
+        vacancy = get_object_or_404(Vacancy, id=id)
+        if vacancy.favourites.filter(id =request.user.id).exists():
+            vacancy.favourites.remove(request.user)
+        else:
+            vacancy.favourites.add(request.user)
+        return redirect('vacancies')
+    return render(request, 'vacancies.html', {})
+
+def favourites_list(request):
+    if request.user.is_authenticated:
+        new = Vacancy.objects.filter(favourites=request.user)
+        return render(request, 'favourites.html', {'new':new})
+
+def recomendation_algorithm(vacancy_all,vacancy):
+    for vac in range(vacancy_all):
+        vacancy_all_cleaned = vac.skills.replace(',','')
+        vacancy_cleaned = vacancy.skills.replace(',','')
+
+        print(vacancy_all_cleaned)
+        print(vacancy_cleaned)
+
+        v = vacancy_all_cleaned.strip()
+        y = vacancy_cleaned.strip()
+        if v ==  y:
+            return print('Equals')
+        else:
+            return print('Not equals')    

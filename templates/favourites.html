@@ -1,0 +1,84 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/favourites.css' %}">
+</head>
+<br>
+<br>
+<br>
+<br>
+<div class="main__container">
+    <div class="left__content__jobs">
+
+        <div class="left__content">
+                
+                    <div class="left__content__header">
+                        <div class="left__content__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#56687a" class="bi bi-bookmark-fill" viewBox="0 0 16 16">
+                                <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="left__content__text">
+                            My elements
+                        </div>
+                    </div>
+                       
+                    <div class="left__content__list">
+                        <div class="left__content__element">
+                            My vacancies
+                        </div>
+                        <div class="left__content__number">
+                            1
+                        </div>
+
+                    </div>         
+        </div>
+
+    </div>
+
+    <div class="main__content__jobs">
+        <div class="main__content__header">
+            <div class="main__content__title">
+                <h1> My vacancion </h1>
+            </div>
+            <div class="main__content__button">
+                <button class="main__button">Saved</button>
+            </div>
+        </div>
+        <ul class="main__list__ul">
+            {% for vac in new %}
+            <li class="main__list__li">
+                <div class="main__li__wrapper">
+                        <div class="main__li__logo">
+                            <img src="{{ vac.company.logo.url }}" class="main__company__img">
+                        </div>
+                        <div class="main__li__description">
+                                <span class="li__speciality">{{ vac.position }}</span>
+                                <p>{{ vac.company.name }}</p>
+                                <span class="li__geo">{{ vac.vacancy_region }}({{ vac.type_of_employment }})</span><br>
+                                <span class="li__geo">{{ vac.date_created }}</span>
+                                
+                        </div>
+
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+    <div class="right__content__jobs">
+        <div class="right__content__info">
+            <div class="right__content__title">
+                <h3>Looking for a job ?</h3>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

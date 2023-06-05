@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'registrationapp',
     'django.contrib.sites',
-
+    'ckeditor',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',

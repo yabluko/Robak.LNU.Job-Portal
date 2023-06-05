@@ -13,5 +13,7 @@ urlpatterns = [
     path('vacancies', views.vacancies, name='vacancies'),
     path('vacancies/creation', views.vacancies__creating, name='vacancies_creation'),
     path('post_likes/<int:pk>', views.post_likes , name="post_likes" ),
-    path('vacancies/recommended/<int:vacancy_pk>', views.vacancies_recommended, name='vacancies_recommended')
+    path('vacancies/recommended/<int:vacancy_pk>', views.vacancies_recommended, name='vacancies_recommended'),
+    path('favourites/<int:id>', views.favourites, name='favourite_add'),
+    path('favourites/list', views.favourites_list, name='favourite_list'),
 ]

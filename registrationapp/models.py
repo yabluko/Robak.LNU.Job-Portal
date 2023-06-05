@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User, AbstractUser
 from django.db.models.signals import post_save
 from django import forms
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -28,6 +29,7 @@ class Profile(models.Model):
 class Company(models.Model):
     name = models.CharField(max_length=200, null=True, blank=False)
     logo = models.ImageField(null=True, blank=True, upload_to="images/")
+    employee = models.CharField(max_length=200, null=True, blank=False)
 
     def __str__(self):
         return self.name
@@ -48,17 +50,18 @@ class CompanyProfile(models.Model):
 
 
 class Vacancy(models.Model):
-    company = models.ForeignKey(Company, related_name="vacancy_of_company", on_delete=models.CASCADE ,null=True, blank=False)
+    company = models.ForeignKey(Company, related_name="vacancy_of_company",null=True, blank=False,  on_delete=models.CASCADE)
     position = models.CharField(max_length=200,null=True, blank=False)     
     type_of_workplace = models.CharField(max_length=200,null=True, blank=False)     
     vacancy_region = models.CharField(max_length=200,null=True, blank=False)     
     type_of_employment = models.CharField(max_length=200,null=True, blank=False)      
-    bio_vacancy = models.TextField(null=True, blank=False)
+    bio_vacancy = RichTextField(blank=True, null=True)
     date_created = models.DateField(auto_now=True)
     skills = models.CharField(max_length=200,null=True, blank=False)
+    favourites = models.ManyToManyField(User, related_name='favourite',default=None, blank=True)
 
 
-    def __str__(self):             
+    def __str__(self):              
         return f"{self.company.name} - {self.position}"
 
 

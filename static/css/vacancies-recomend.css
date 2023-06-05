@@ -128,14 +128,41 @@ ul{
 
 .job__content{
     padding: 25px ;
+    font-size: 16px;
 }
 
-/* 
+
 .job__description{
     font-size: 16px;
 }
 
 .job__info{
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
-} */
+    margin-top: 10px;
+} 
+
+.job__skills__ul{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.job__ul{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.job__li{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.job__li__skills{
+    margin-left: 10px;
+}
+
+.job__li__skills p {
+    white-space: pre-line;
+}

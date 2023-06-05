@@ -102,12 +102,14 @@ p{
     align-self: flex-start;
     max-height: 515.9px;
 }
-
-.left-sidebar-li{
-    display: flex;
-    justify-content: space-between;
+.left-sidebar-href{
+     display: flex;
+    justify-content: space-between; 
     align-items: center;
-    cursor: pointer;
+}
+
+.left-sidebar-li:hover{
+    font-weight: 600
 }
 
 .left-sidebar-numbers-posts{
@@ -160,10 +162,9 @@ p{
 }
 
 .sidebar-profile-info ul li{
-    width: 100%;
     margin: 10px 0;
-    font-size: 13px;
-}
+    font-size: 14px;
+} 
 
 
 .sidebar-profile-info ul li span{
@@ -173,7 +174,6 @@ p{
 
 .sidebar-profile-text {
     font-size: 16px;
-    
 }
 
 .right-sidebar{
@@ -201,7 +201,6 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
 }
 
 
@@ -273,8 +272,6 @@ p{
     font-size: 14px ;
     font-family: 'AvenirNext', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-
-
 
 
 .sort-by{
@@ -366,6 +363,7 @@ p{
     background: #fff;
     padding: 4px;
     margin-top: -70px;
+    margin-left: 80px;
 }
 
 

@@ -32,37 +32,47 @@
             <img src="/static/img/Abstract Background.jpeg" width="100%">
 
             <div class="sidebar-profile-info">
-                {% if profile.profile_image %}
-                    <img src="{{ profile.profile_image.url }}" class="main__profile__img" width="100px" height="100px">
-                    {% else %}
-                    <img src="/static/img/person-circle.jpg" >
-                {% endif %}
-                
-                <h1>{{ user.username }}</h1>
+                <a href="{% url 'profile' request.user.id %}">
+                    {% if profile.profile_image %}
+                        <img src="{{ profile.profile_image.url }}" class="main__profile__img" width="100px" height="100px">
+                        {% else %}
+                        <img src="/static/img/person-circle.jpg" >
+                    {% endif %}
+                    
+                </a>
                 <div class="sidebar-profile-text">   
+                    <h1>{{ user.username }}</h1>
                     {{ profile.first_name }} 
                     {{ profile.last_name }} 
+                    <h3>{{ profile.education }}</h3>
+                    <h3>{{ profile.jobs }}</h3>
                 </div>
 
 
-                <h3>{{ profile.education }}</h3>
-                <h3>{{ profile.jobs }}</h3>
 
                 <ul class="left-sidebar-ul">
-
-                    <li class="left-sidebar-li">Your profile subscribers <div class="left-sidebar-numbers-followers">{{ number_of_followers }}</div></li>
-                    <li class="left-sidebar-li">Your posts <div class="left-sidebar-numbers-posts">{{ user_posts.count }} </div></li>
-                    <li class="left-sidebar-li"> 
-                        Your elements 
-                        <div class="left-sidebar-numbers">
-                                <a href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-fill" viewBox="0 0 16 16">
-                                    <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/>
-                                </svg>
-                            </a> 
-                            </div>
+                    <li class="left-sidebar-li">
+                        <a href="{% url 'favourite_list' %}"class="left-sidebar-href" > 
+                            <div class="left-sidebar-text">Your profile subscribers</div>
+                            <div class="left-sidebar-numbers-followers">{{ number_of_followers }}</div>
+                        </a>
                     </li>
-
+                    <li class="left-sidebar-li">
+                        <a href="{% url 'favourite_list' %}" class="left-sidebar-href"> 
+                            <div class="left-sidebar-text">Your posts </div>
+                            <div class="left-sidebar-numbers-posts">{{ user_posts.count }}</div> 
+                        </a>
+                    </li>
+                    <li class="left-sidebar-li"> 
+                        <a href="{% url 'favourite_list' %}" class="left-sidebar-href">
+                            <div class="left-sidebar-text">Your elements </div>
+                            <div class="left-sidebar-numbers">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-fill" viewBox="0 0 16 16">
+                                        <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/>
+                                    </svg>
+                            </div>
+                        </a> 
+                    </li>
                 </ul>
 
             
