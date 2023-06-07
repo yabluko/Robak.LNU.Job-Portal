@@ -33,7 +33,7 @@ class PostForm(forms.ModelForm):
     )
     class Meta:
         model = Post
-        exclude = ("user","likes") 
+        exclude = ("user","likes", "company",) 
 
 ALGORITHM_CHOICES = [
     ('P', 'POPULARITY'),
@@ -46,7 +46,14 @@ class OrderPostForm(forms.Form):
 class VacancyForm(forms.ModelForm):
     class Meta:
         model = Vacancy
-        fields = ('position', 'company', 'type_of_workplace', 'vacancy_region', 'type_of_employment')
+        fields = ('position', 'type_of_workplace', 'vacancy_region', 'type_of_employment')
+
+
+class Vacancy_Apply(forms.Form):
+    email = forms.EmailField(max_length=100)
+    number = forms.CharField(max_length=100)
+    resume = forms.FileField()
+
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(label='Email',widget=forms.TextInput(attrs={'class':'registration__form__input'}))

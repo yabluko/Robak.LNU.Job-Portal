@@ -73,13 +73,32 @@ p {
 }
 
 .main__list__li{
-    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     padding-top: 16px;
     padding-bottom: 8px;
 }
 
 .main__li__icon{
     margin-left: auto;
+}
+
+.main__li__icon a {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+}
+.main__li__icon{
+    display: flex;
+    align-items: center;
+    padding: 7px;
+}
+
+.main__li__icon:hover{
+    border-radius: 50%;
+    background-color: rgba(204, 204, 204, 0.714);
+    transition: 0.3ms;
 }
 
 .left__button__href{

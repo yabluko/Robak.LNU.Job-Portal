@@ -3,7 +3,7 @@
 {% block content %}
 <head>
 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/vacancies-recomend.css' %}"> 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/searched-vacancies.css' %}"> 
     <script src="{% static 'js/home-page.js' %}"></script>
 
 </head>
@@ -12,32 +12,28 @@
 <br>
 <br>
 
-<div class="main__container">
+
+
+ <div class="main__container">
     <div class="leftside">
         <div class="leftside__title">
-            <h1>Jobs based on your profile</h1>
-            <p>{{ vacancy_count }} vacancies</p>
+            Your vacancies
         </div>
         <div class="leftside__vancies__list">
             <ul>
-                {% for vac in vacancies_all %}
+                {% for vac in vacancies %}
                 <li class="leftside__list__li">
                     <div id="leftside__li__wrapper">
                         <div class="leftside__li__logo">
                             <img src="{{ vac.company.logo.url }}" class="lefside__company__img">
                         </div>
                         <div class="leftside__li__description">
-                            <a href="{% url 'vacancies_recommended' vac.id %}">
+                            <a href="{% url 'searched_vacancies_bio' vac.id %}">
                                 {{ vac.position }} 
                             <p>{{ vac.company.name }} </p>
                             <p class="leftside__li__country">{{ vac.region }}</p>
                             <p class="leftside__li__time">{{ vac.date_created }}</p>
                             </a>
-                        </div>
-                        <div class="left__li__icon">
-                            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
-                                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
-                            </svg> -->
                         </div>
                     </div>
                 </li>
@@ -52,7 +48,7 @@
             <h2>{{ vacancy.position }}</h2>
             <div class="job__info">
                 {{ vacancy.company.name }} •
-                {{ company_profile.company_location }} •
+                {{ vacancy.company_profile.company_location }} •
                 {{ vacancy.date_created }}
             </div>
 
@@ -107,7 +103,7 @@
                     Unsave
                 </a>
                 {% else %}
-                <a href="{% url 'favourite_add' vacancy.id %}" class="job__save">
+                <a href="#" class="job__save">
                     Save
                 </a>
                 {% endif %} 
@@ -121,5 +117,4 @@
 
 </div>
 
-
-{% endblock %}
+{% endblock %}  

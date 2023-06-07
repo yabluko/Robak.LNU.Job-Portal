@@ -100,24 +100,38 @@ a{
 }
 
 .header__input{
+    display: flex;
     width: 280px;
     height: 34px;
     background-color: #eef3f8;
     border: none;
-    border-radius: 5px;
     box-decoration-break: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.header__input__form{
+    display: flex;
 }
 
 .header__input__container input[type="text"] {
-    padding-right: 30px;
+    font-family: 'AvenirNext', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#fa-search{
+    border: none;
+    background-color: #eef3f8;
+    margin-right:5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
   
-.header__input__container i {
+/* .header__input__container i {
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
-}
+} */
 
 .header__exit{
     display: flex;

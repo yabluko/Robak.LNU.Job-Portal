@@ -52,13 +52,13 @@
 
                 <ul class="left-sidebar-ul">
                     <li class="left-sidebar-li">
-                        <a href="{% url 'favourite_list' %}"class="left-sidebar-href" > 
+                        <a href="#"class="left-sidebar-href" > 
                             <div class="left-sidebar-text">Your profile subscribers</div>
                             <div class="left-sidebar-numbers-followers">{{ number_of_followers }}</div>
                         </a>
                     </li>
                     <li class="left-sidebar-li">
-                        <a href="{% url 'favourite_list' %}" class="left-sidebar-href"> 
+                        <a href="{% url 'profile' request.user.id  %}" class="left-sidebar-href"> 
                             <div class="left-sidebar-text">Your posts </div>
                             <div class="left-sidebar-numbers-posts">{{ user_posts.count }}</div> 
                         </a>
@@ -103,7 +103,7 @@
                 {% endif %}
             </div>
             
-            <div class="main__content__list">
+            <!-- <div class="main__content__list">
                 <ul class="main__list">
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
@@ -134,19 +134,19 @@
                         <span class="main__list__text">Posts</span>
                     </li>
                 </ul>
-            </div>
+            </div> -->
 
             
             
         </div>
         <div class="sort-by">
             <hr>
-            <form action="{% url 'home' %}" method="get">
+            <form action="{% url 'home' %}" method="get" >
+                <button type="submit" >Sort by</button>
                 <select name="order_by">
-                    <option value="-created_at" >За останніми</option>
-                    <option value="likes">За популярністю</option>
+                    <option value="-created_at" >latest</option>
+                    <option value="likes">popularity</option>
                 </select>
-                <button type="submit">Сортувати</button>
             </form>
             
         </div>
@@ -258,7 +258,7 @@
             
             <div class="right-sidebar-hiring ">
                 
-                <a href="#">
+                <a href="{% url 'vacancies' %}">
                     <img src="/static/img/hiring.png" alt="" class="right-sidebar-img">
                 </a>
             </div>

@@ -3,8 +3,9 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout 
 from django.urls import reverse
 from registrationapp.models import Profile, Post , Vacancy, Company, CompanyProfile
-from .forms import PostForm, SignUpForm, ProfilePicForm, ProfileUserForm, VacancyForm, OrderPostForm
+from .forms import PostForm, SignUpForm, ProfilePicForm, ProfileUserForm, VacancyForm, Vacancy_Apply
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
 # Create your views here.
 
 def main(request):
@@ -137,30 +138,64 @@ def update_user(request):
 def vacancies(request):
     # vacancy = Vacancy.objects.get(user__id=request.user.id)
     profile = Profile.objects.get(user__id=request.user.id)
-    vacancy = Vacancy.objects.all()
+
+    vacancy = Vacancy.objects.filter(skills=profile.skills)
+    
     return render(request, 'vacancies.html', {'vacancy': vacancy , 'profile': profile})
 
 def vacancies__creating(request):
     if request.user.is_authenticated:
-        vacancy_form = VacancyForm()
-        # company_form_picture = ProfilePicForm(request.POST or None, request.FILES or None, instance=profile_user)
+        vacancy_form = Vacancy_Apply()
+        username = request.user.username
         if request.method == 'POST':
-            vacancy_form = VacancyForm(request.POST)
-            if vacancy_form.is_valid():
-                job = vacancy_form.save() 
-                job.user = request.user
-                job.save()
-                messages.success(request, ("Your vacancy posted"), extra_tags='message-success')
-                return redirect('vacancies')
-            else:
-                messages.success(request, ("Your vacancy wasn't posted"), extra_tags='message-error')
-                return redirect('vacancies-creation')    
+            vacancy_form = Vacancy_Apply(request.POST, request.FILES)
+            email = request.POST['email']
+            number = request.POST['number']
+            # resume = request.FILES['resume']
+            # send_mail(
+            #     username, 
+            #     email,
+            #     ['linkedinclone1@gmail.com'], 
+            # )
             
-    else :
-        vacancy_form = VacancyForm()        
-    return render(request, 'vacancies-creation.html', {'vacancy_form': vacancy_form})
+
+            messages.success(request, ("Your apply was sended succeeded"), extra_tags='message-success')
+            return redirect('vacancies')
+    else:
+        messages.success(request, ("Your apply wasn't posted"), extra_tags='message-error')
+        return redirect('vacancies')      
+    return render(request, 'vacancies-creation.html', {'vacancy_form': vacancy_form })
 
 
+def vacancies_recommended(request, vacancy_pk):
+    if request.user.is_authenticated:
+        profile = Profile.objects.get(user__id=request.user.id)
+        vacancies_all = Vacancy.objects.filter(skills=profile.skills)
+        vacancy_count = Vacancy.objects.filter(skills=profile.skills).count()
+        vacancy = Vacancy.objects.get(id=vacancy_pk)
+        company_profile = CompanyProfile.objects.get(company_id=vacancy.company.id)
+        # recomendation_algorithm(vacancies_all,vacancy)
+    else:  
+        return redirect('home')
+    
+    return render(request, 'vacancies-recomend.html', {'vacancy':vacancy , 'vacancies_all':vacancies_all, 'company_profile':company_profile, 'profile':profile ,'vacancy_count':vacancy_count})
+
+def searched_vacancies(request):
+    if request.method == 'POST':
+        searched = request.POST['searched']
+        vacancies = Vacancy.objects.filter(position__contains=searched)
+        request.session['searched'] = searched
+        vacancy_count = vacancies.count()
+        return render(request, 'searched-vacancies.html', {'searched':searched, 'vacancies':vacancies, 'vacancy_count':vacancy_count})
+    else:
+        return render(request, 'searched-vacancies.html', {})
+
+
+def searched_vacancies_bio(request, vacancy_pk):
+    vacancy = Vacancy.objects.get(id=vacancy_pk)
+    searched = request.session.get('searched')
+    vacancies = Vacancy.objects.filter(position__contains=searched)
+    return render(request, 'searched-vacancies-bio.html',{'vacancy':vacancy, 'vacancies':vacancies})
 
 
 def post_likes(request, pk):
@@ -177,20 +212,6 @@ def post_likes(request, pk):
         return redirect('main')
 
 
-def vacancies_recommended(request, vacancy_pk):
-    if request.user.is_authenticated:
-
-        vacancies_all = Vacancy.objects.all()
-        vacancy = Vacancy.objects.get(id=vacancy_pk)
-        company_profile = CompanyProfile.objects.get(company_id=vacancy.company.id)
-        # recomendation_algorithm(vacancies_all,vacancy)
-        
-    else:  
-        return redirect('home')
-    
-    
-    return render(request, 'vacancies-recomend.html', {'vacancy':vacancy , 'vacancies_all':vacancies_all, 'company_profile':company_profile})
-
 def favourites(request , id ):
     if request.user.is_authenticated:
         vacancy = get_object_or_404(Vacancy, id=id)
@@ -198,13 +219,17 @@ def favourites(request , id ):
             vacancy.favourites.remove(request.user)
         else:
             vacancy.favourites.add(request.user)
-        return redirect('vacancies')
+        return redirect('vacancies') 
     return render(request, 'vacancies.html', {})
+
 
 def favourites_list(request):
     if request.user.is_authenticated:
+        profile = Profile.objects.get(user__id=request.user.id)
         new = Vacancy.objects.filter(favourites=request.user)
-        return render(request, 'favourites.html', {'new':new})
+        count_new = new.count()
+        return render(request, 'favourites.html', {'new':new, 'profile':profile ,'count_new':count_new} )
+
 
 def recomendation_algorithm(vacancy_all,vacancy):
     for vac in range(vacancy_all):

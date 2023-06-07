@@ -16,4 +16,6 @@ urlpatterns = [
     path('vacancies/recommended/<int:vacancy_pk>', views.vacancies_recommended, name='vacancies_recommended'),
     path('favourites/<int:id>', views.favourites, name='favourite_add'),
     path('favourites/list', views.favourites_list, name='favourite_list'),
+    path('vacancies/searched_vacancies/', views.searched_vacancies, name='searched_vacancies'),
+    path('vacancies/searched_vacancies_bio/<int:vacancy_pk>/', views.searched_vacancies_bio, name='searched_vacancies_bio'),
 ]

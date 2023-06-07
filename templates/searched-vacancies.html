@@ -1,0 +1,58 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% block content %}
+<head>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/searched-vacancies.css' %}"> 
+    <script src="{% static 'js/home-page.js' %}"></script>
+    
+</head>
+
+<br>
+<br>
+<br>
+
+
+
+<div class="main__container">
+    <div class="leftside">
+        <div class="leftside__title">
+            {% if searched %}
+            <h1>You are looking for {{ searched }}</h1>
+            <p>vacancies {{ vacancy_count }}</p>
+            {% else %}
+            <h1>You searched for nothing</h1>
+            <p>vacancies 0</p>
+            {% endif %}
+        </div>
+        <div class="leftside__vancies__list">
+            <ul>
+                {% if searched %}
+                {% for vac in vacancies %}
+                <li class="leftside__list__li">
+                    <div id="leftside__li__wrapper">
+                        <div class="leftside__li__logo">
+                            <img src="{{ vac.company.logo.url }}" class="lefside__company__img">
+                        </div>
+                        <div class="leftside__li__description">
+                            <a href="{% url 'searched_vacancies_bio' vac.id %}">
+                                {{ vac }} 
+                                <p>{{ vac.company.name }} </p>
+                                <p class="leftside__li__country">{{ vac.region }}</p>
+                                <p class="leftside__li__time">{{ vac.date_created }}</p>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+                {% else %}
+                <center>You searched for nothing...Please try again </center> 
+                {% endif %}
+            </ul>
+            
+        </div>
+    </div>
+    
+</div> 
+
+{% endblock %}  

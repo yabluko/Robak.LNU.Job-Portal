@@ -17,8 +17,12 @@
           <img src="/static/img/logo.png" alt="logotype" class="logoimg">
         </a>
         <div class="header__input__container">
-          <input type="text" class="header__input" placeholder=" Search">
-          <i class="fas fa-search"></i>
+          <form action="{% url 'searched_vacancies' %}" class="header__input__form" method="POST">
+            {% csrf_token %}
+            <input type="text" class="header__input" placeholder=" Search" name="searched">
+            <button class="fas fa-search" id="fa-search"></button>
+          </form>
+          <!-- <i class="fas fa-search"></i> -->
         </div>        
       
       <nav class="header__nav">
