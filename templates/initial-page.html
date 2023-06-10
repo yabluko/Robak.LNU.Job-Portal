@@ -1,5 +1,5 @@
 {% load static %}
-{% load socialaccount %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,7 +53,7 @@
                 <h1>Welcome to your professional community </h1>
             </div>
 
-            <form action="{% url 'main'%}" class="registration__form" method='POST'>
+            <form action="{% url 'main' %}" class="registration__form" method='POST'>
                 {% csrf_token %}
                 <label for="" class="registration__form__label">Username</label>
                 <input type="text" class="main__container__input" placeholder="Your username" name="username">
@@ -68,7 +68,7 @@
             </div>
         
             <div class="main__button__google">
-                <a href="{%provider_login_url 'google'%}" class="main__button__href">
+                <a href="{% url 'social:begin' 'google-oauth2' %}" class="main__button__href">
 
                    <div class="main__google__img"><img src="/static/img/image2vector.svg" alt="logo" class="logo__google"></div>
 

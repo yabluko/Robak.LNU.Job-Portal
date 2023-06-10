@@ -2,10 +2,14 @@ from django.shortcuts import render, redirect , get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout 
 from django.urls import reverse
-from registrationapp.models import Profile, Post , Vacancy, Company, CompanyProfile
+from registrationapp.models import Profile, Post , Vacancy, Company, CompanyProfile, Event
 from .forms import PostForm, SignUpForm, ProfilePicForm, ProfileUserForm, VacancyForm, Vacancy_Apply
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
+import os
+import urllib.request
+from django.core.files import File
+import requests
 # Create your views here.
 
 def main(request):
@@ -231,17 +235,37 @@ def favourites_list(request):
         return render(request, 'favourites.html', {'new':new, 'profile':profile ,'count_new':count_new} )
 
 
-def recomendation_algorithm(vacancy_all,vacancy):
-    for vac in range(vacancy_all):
-        vacancy_all_cleaned = vac.skills.replace(',','')
-        vacancy_cleaned = vacancy.skills.replace(',','')
+def events_list(request):
+    profile = Profile.objects.get(user__id=request.user.id)
+    url = 'https://api.seatgeek.com/2/events?per_page=2&page=10&client_id=MzQxOTYyMjR8MTY4NjMzMjI3Mi42MDU4MTk1'
+    response = requests.get(url)
+    json_data = response.json()
 
-        print(vacancy_all_cleaned)
-        print(vacancy_cleaned)
 
-        v = vacancy_all_cleaned.strip()
-        y = vacancy_cleaned.strip()
-        if v ==  y:
-            return print('Equals')
-        else:
-            return print('Not equals')    
+    for event in json_data.get('events', []):
+        event_id = event.get('id')
+        event_name = event.get('performers', [{}])[0].get('name', '')
+        event_location = event.get('location', {}).get('name')
+        event_date = event.get('datetime_local')
+        event_image_url = event.get('performers', [{}])[0].get('image')
+        
+        if event_image_url:
+        
+            image_filename = f"event_{event_id}.jpg"
+            save_path = os.path.join("media/images/", image_filename)
+
+            urllib.request.urlretrieve(event_image_url, save_path)
+            with open(save_path, 'rb') as f:
+            
+                event_img_file = File(f)
+
+            
+                event_obj, created = Event.objects.get_or_create(data_event=event_id)
+                event_obj.event_img = save_path
+                event_obj.event_name = event_name
+                event_obj.event_data = event_date
+                event_obj.event_location = event_location
+                event_obj.save()
+                events = Event.objects.all()
+
+    return render(request, 'events-list.html',{'profile':profile,'events': events})

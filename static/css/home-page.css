@@ -20,7 +20,6 @@ p{
     width: 1120px;
     height: 800px;
     margin: 0 auto;
-    display: flex;
     align-items: center;
     display: flex;
     align-items: flex-start;
@@ -103,7 +102,7 @@ p{
     max-height: 515.9px;
 }
 .left-sidebar-href{
-     display: flex;
+    display: flex;
     justify-content: space-between; 
     align-items: center;
 }

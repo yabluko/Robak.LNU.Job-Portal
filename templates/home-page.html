@@ -42,10 +42,15 @@
                 </a>
                 <div class="sidebar-profile-text">   
                     <h1>{{ user.username }}</h1>
-                    {{ profile.first_name }} 
-                    {{ profile.last_name }} 
-                    <h3>{{ profile.education }}</h3>
-                    <h3>{{ profile.jobs }}</h3>
+                    {% if profile.first_name != None %}
+                        {{ profile.first_name }} 
+                        {{ profile.last_name }} 
+                        <h3>{{ profile.education }}</h3>
+                        <h3>{{ profile.jobs }}</h3>
+                    {% else %} 
+                    <p> -- </p>
+                    {% endif %}   
+
                 </div>
 
 
@@ -74,9 +79,12 @@
                         </a> 
                     </li>
                 </ul>
-
+                <a href="{% url 'events_list' %}">
+                    My Events
+                </a>
             
             </div>
+
         </div>
 
 
@@ -90,7 +98,7 @@
                 {% if profile.profile_image %}
                 <img src="{{ profile.profile_image.url }}" class="main__post__img">
                 {% else %}
-                <img src="/static/img/person-circle.jpg" alt="">
+                <img src="/static/img/person-circle.jpg" class="main__post__img" alt="">
                 {% endif %}
                 {% if form %}
                 <form class="form__post" method="POST">

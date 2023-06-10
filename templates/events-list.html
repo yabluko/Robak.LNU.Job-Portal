@@ -1,0 +1,91 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% block content  %}
+<br>
+<br>
+<br>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/events-list.css' %}"> 
+</head>
+<div class="main__container">
+<h3>Your events</h3>
+<div class="top__content">
+    {% for event in events %}
+    <div class="slide"> 
+        <div class="top__img">
+            <img src="{{ event.event_img.url }}" alt="" class="top__img__path">
+        </div>  
+        <div class="top__text">
+            <span>{{ event.event_name }}</span>
+            <p>{{ event.event_data }}</p>
+            <a href="{{ event.event_url }}">
+                Event href
+            </a>
+        </div>
+    
+    </div>
+    {% endfor %}
+    
+</div>
+
+<div class="midlle__content">
+    <div class="slide">
+        <div class="top__img">
+            <img src="" alt="">
+        </div>  
+        <div class="middle__text">
+            hello
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="top__img">
+            <img src="" alt="">
+        </div>  
+        <div class="middle__text">
+            hello
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="top__img">
+            <img src="" alt="">
+        </div>  
+        <div class="middle__text">
+            hello
+        </div>
+    </div>
+
+</div>
+
+<div class="bottom__content">
+    <div class="slide">
+        <div class="top__img">
+            <img src="" alt="">
+        </div>  
+        <div class="bottom__text">
+            hello
+        </div>
+    </div>
+    <div class="slide">
+        <div class="top__img">
+            <img src="" alt="">
+        </div>  
+        <div class="bottom__text">
+            hello
+        </div>
+    </div>
+    <div class="slide">
+        <div class="top__img">
+            <img src="" alt="">
+        </div>  
+        <div class="bottom__text">
+            hello
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+{% endblock %}

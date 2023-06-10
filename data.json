@@ -1,0 +1,343 @@
+{
+    "events": [
+        {
+            "type": "sports",
+            "id": 6014233,
+            "datetime_utc": "2023-06-10T10:30:00",
+            "venue": {
+                "state": "CA",
+                "name_v2": "Life Time - San Clemente",
+                "postal_code": "92672",
+                "name": "Life Time - San Clemente",
+                "links": [],
+                "timezone": "America/Los_Angeles",
+                "url": "https://seatgeek.com/venues/life-time-san-clemente/tickets",
+                "score": 0,
+                "location": {
+                    "lat": 33.4422,
+                    "lon": -117.607
+                },
+                "address": null,
+                "country": "US",
+                "has_upcoming_events": true,
+                "num_upcoming_events": 6,
+                "city": "San Clemente",
+                "slug": "life-time-san-clemente",
+                "extended_address": "San Clemente, CA 92672",
+                "id": 521240,
+                "popularity": 0,
+                "access_method": null,
+                "metro_code": 803,
+                "capacity": 0,
+                "display_location": "San Clemente, CA"
+            },
+            "datetime_tbd": false,
+            "performers": [
+                {
+                    "type": "sports",
+                    "name": "PPA Orange County Cup",
+                    "image": "https://seatgeek.com/images/performers-landscape/ppa-orange-county-cup-59027f/802925/huge.jpg",
+                    "id": 802925,
+                    "images": {
+                        "huge": "https://seatgeek.com/images/performers-landscape/ppa-orange-county-cup-59027f/802925/huge.jpg"
+                    },
+                    "divisions": null,
+                    "has_upcoming_events": true,
+                    "primary": true,
+                    "stats": {
+                        "event_count": 2
+                    },
+                    "taxonomies": [
+                        {
+                            "id": 1000000,
+                            "name": "sports",
+                            "parent_id": null,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 0
+                        }
+                    ],
+                    "image_attribution": "Client Submitted",
+                    "url": "https://seatgeek.com/ppa-orange-county-cup-tickets",
+                    "score": 0,
+                    "slug": "ppa-orange-county-cup",
+                    "home_venue_id": null,
+                    "short_name": "PPA Orange County Cup",
+                    "num_upcoming_events": 2,
+                    "colors": null,
+                    "image_license": "SeatGeek - 2022 (2000 X 2000)",
+                    "popularity": 0,
+                    "location": null,
+                    "image_rights_message": ""
+                },
+                {
+                    "type": "sports",
+                    "name": "Professional Pickleball Association",
+                    "image": "https://seatgeek.com/images/performers-landscape/generic-sports-132f20/677214/35941/huge.jpg",
+                    "id": 802921,
+                    "images": {
+                        "huge": "https://seatgeek.com/images/performers-landscape/generic-sports-132f20/677214/35941/huge.jpg"
+                    },
+                    "divisions": null,
+                    "has_upcoming_events": true,
+                    "stats": {
+                        "event_count": 67
+                    },
+                    "taxonomies": [
+                        {
+                            "id": 1000000,
+                            "name": "sports",
+                            "parent_id": null,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 0
+                        }
+                    ],
+                    "image_attribution": null,
+                    "url": "https://seatgeek.com/professional-pickleball-association-tickets",
+                    "score": 0.19,
+                    "slug": "professional-pickleball-association",
+                    "home_venue_id": null,
+                    "short_name": "Professional Pickleball Association",
+                    "num_upcoming_events": 67,
+                    "colors": null,
+                    "image_license": null,
+                    "popularity": 0,
+                    "location": null,
+                    "image_rights_message": ""
+                },
+                {
+                    "type": "sports",
+                    "name": "PPA Tour",
+                    "image": "https://seatgeek.com/images/performers-landscape/generic-sports-132f20/677214/35941/huge.jpg",
+                    "id": 802920,
+                    "images": {
+                        "huge": "https://seatgeek.com/images/performers-landscape/generic-sports-132f20/677214/35941/huge.jpg"
+                    },
+                    "divisions": null,
+                    "has_upcoming_events": true,
+                    "stats": {
+                        "event_count": 67
+                    },
+                    "taxonomies": [
+                        {
+                            "id": 1000000,
+                            "name": "sports",
+                            "parent_id": null,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 0
+                        }
+                    ],
+                    "image_attribution": null,
+                    "url": "https://seatgeek.com/ppa-tour-tickets",
+                    "score": 0.19,
+                    "slug": "ppa-tour",
+                    "home_venue_id": null,
+                    "short_name": "PPA Tour",
+                    "num_upcoming_events": 67,
+                    "colors": null,
+                    "image_license": null,
+                    "popularity": 0,
+                    "location": null,
+                    "image_rights_message": ""
+                }
+            ],
+            "is_open": false,
+            "links": [],
+            "datetime_local": "2023-06-10T03:30:00",
+            "time_tbd": true,
+            "short_title": "PPA Orange County Cup - Saturday - Mens/Womens Doubles",
+            "visible_until_utc": "2023-06-11T07:00:00",
+            "stats": {
+                "listing_count": null,
+                "average_price": null,
+                "lowest_price_good_deals": null,
+                "lowest_price": null,
+                "highest_price": null,
+                "visible_listing_count": null,
+                "dq_bucket_counts": null,
+                "median_price": null,
+                "lowest_sg_base_price": null,
+                "lowest_sg_base_price_good_deals": null
+            },
+            "taxonomies": [
+                {
+                    "id": 1000000,
+                    "name": "sports",
+                    "parent_id": null,
+                    "rank": 0
+                }
+            ],
+            "url": "https://seatgeek.com/ppa-orange-county-cup-saturday-mens-womens-doubles-tickets/sport/2023-06-10-3-30-am/6014233",
+            "score": 0,
+            "announce_date": "2023-05-03T00:00:00",
+            "created_at": "2023-05-03T21:21:24",
+            "date_tbd": false,
+            "title": "PPA Orange County Cup - Saturday - Mens/Womens Doubles",
+            "popularity": 0,
+            "description": "",
+            "status": "normal",
+            "access_method": null,
+            "event_promotion": null,
+            "announcements": {},
+            "conditional": false,
+            "enddatetime_utc": null,
+            "visible_at": "2023-05-03T21:21:23Z",
+            "is_visible_override": "UNSET",
+            "tdc_pvo_id": 0,
+            "tdc_pv_id": 0,
+            "themes": [],
+            "domain_information": []
+        },
+        {
+            "type": "family",
+            "id": 5851203,
+            "datetime_utc": "2023-06-10T10:30:00",
+            "venue": {
+                "state": "NV",
+                "name_v2": "Le Theatre Des Arts at Paris Las Vegas",
+                "postal_code": "89109",
+                "name": "Le Theatre Des Arts at Paris Las Vegas",
+                "links": [],
+                "timezone": "America/Los_Angeles",
+                "url": "https://seatgeek.com/venues/le-theatre-des-arts-at-paris-las-vegas-2/tickets",
+                "score": 0.47,
+                "location": {
+                    "lat": 36.11,
+                    "lon": -115.171
+                },
+                "address": "3655 Las Vegas Blvd South",
+                "country": "US",
+                "has_upcoming_events": true,
+                "num_upcoming_events": 204,
+                "city": "Las Vegas",
+                "slug": "le-theatre-des-arts-at-paris-las-vegas-2",
+                "extended_address": "Las Vegas, NV 89109",
+                "id": 1610,
+                "popularity": 0,
+                "access_method": null,
+                "metro_code": 839,
+                "capacity": 0,
+                "display_location": "Las Vegas, NV"
+            },
+            "datetime_tbd": false,
+            "performers": [
+                {
+                    "type": "theater_family",
+                    "name": "Eiffel Tower Experience",
+                    "image": "https://seatgeek.com/images/performers-landscape/eiffel-tower-experience-ce92de/605657/huge.jpg",
+                    "id": 605657,
+                    "images": {
+                        "huge": "https://seatgeek.com/images/performers-landscape/eiffel-tower-experience-ce92de/605657/huge.jpg"
+                    },
+                    "divisions": null,
+                    "has_upcoming_events": true,
+                    "primary": true,
+                    "stats": {
+                        "event_count": 204
+                    },
+                    "taxonomies": [
+                        {
+                            "id": 3000000,
+                            "name": "theater",
+                            "parent_id": null,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 6
+                        },
+                        {
+                            "id": 3050000,
+                            "name": "family",
+                            "parent_id": 3000000,
+                            "document_source": {
+                                "source_type": "ELASTIC",
+                                "generation_type": "FULL"
+                            },
+                            "rank": 0
+                        }
+                    ],
+                    "image_attribution": "https://www.flickr.com/photos/30478819@N08/33015766008/in/photolist-SiuqYY-2aAJ6nb-27tFEJr-TfEqvU-5aFqe6-2fRfscU-5DcTqo-aeB1dg-bwAYdx-2bPCenq-8ARy1R-bEMH74-8AVpGL-8hqR5S-VdZ7nk-jxcedC-22scg7N-9xTeGb-JpxkhQ-aZSDGK-TeZcdy-UyCnMt-KAvtd8-Zs5p3j-dAxQMP-wWQ9yZ-SVBXhi-U6EHKs-2avypie-27tFDtv-28L2Gyd-27tFTRP-266CDAq-55FPdQ-cQMWE3-cQMWJC-23gcZ9w-eUSFKb-o7da-6iS3sK-bdJx7r-4Li5MP-aFafGG-4Li66X-7JPSpe-4faxNq-bVSDK2-bVSCu4-bVSyga-bVSzfF",
+                    "url": "https://seatgeek.com/eiffel-tower-experience-tickets",
+                    "score": 0.23,
+                    "slug": "eiffel-tower-experience",
+                    "home_venue_id": null,
+                    "short_name": "Eiffel Tower Experience",
+                    "num_upcoming_events": 204,
+                    "colors": null,
+                    "image_license": "https://creativecommons.org/licenses/by/2.0/?ref=ccsearch&atype=rich",
+                    "popularity": 0,
+                    "location": null,
+                    "image_rights_message": "[This image](https://www.flickr.com/photos/30478819@N08/33015766008/in/photolist-SiuqYY-2aAJ6nb-27tFEJr-TfEqvU-5aFqe6-2fRfscU-5DcTqo-aeB1dg-bwAYdx-2bPCenq-8ARy1R-bEMH74-8AVpGL-8hqR5S-VdZ7nk-jxcedC-22scg7N-9xTeGb-JpxkhQ-aZSDGK-TeZcdy-UyCnMt-KAvtd8-Zs5p3j-dAxQMP-wWQ9yZ-SVBXhi-U6EHKs-2avypie-27tFDtv-28L2Gyd-27tFTRP-266CDAq-55FPdQ-cQMWE3-cQMWJC-23gcZ9w-eUSFKb-o7da-6iS3sK-bdJx7r-4Li5MP-aFafGG-4Li66X-7JPSpe-4faxNq-bVSDK2-bVSCu4-bVSyga-bVSzfF) is available through [Creative Commons](https://creativecommons.org/licenses/by/2.0/?ref=ccsearch&atype=rich) on Flickr. Email [images@seatgeek.com](mailto:images@seatgeek.com) with any questions."
+                }
+            ],
+            "is_open": false,
+            "links": [],
+            "datetime_local": "2023-06-10T03:30:00",
+            "time_tbd": true,
+            "short_title": "Eiffel Tower Experience - Las Vegas",
+            "visible_until_utc": "2023-06-11T07:00:00",
+            "stats": {
+                "listing_count": null,
+                "average_price": null,
+                "lowest_price_good_deals": null,
+                "lowest_price": null,
+                "highest_price": null,
+                "visible_listing_count": null,
+                "dq_bucket_counts": null,
+                "median_price": null,
+                "lowest_sg_base_price": null,
+                "lowest_sg_base_price_good_deals": null
+            },
+            "taxonomies": [
+                {
+                    "id": 3000000,
+                    "name": "theater",
+                    "parent_id": null,
+                    "rank": 6
+                },
+                {
+                    "id": 3050000,
+                    "name": "family",
+                    "parent_id": 3000000,
+                    "rank": 0
+                }
+            ],
+            "url": "https://seatgeek.com/eiffel-tower-experience-las-vegas-tickets/family/2023-06-10-3-30-am/5851203",
+            "score": 0.341,
+            "announce_date": "2022-10-23T00:00:00",
+            "created_at": "2022-10-23T16:02:47",
+            "date_tbd": false,
+            "title": "Eiffel Tower Experience - Las Vegas",
+            "popularity": 0.659,
+            "description": "",
+            "status": "normal",
+            "access_method": null,
+            "event_promotion": null,
+            "announcements": {},
+            "conditional": false,
+            "enddatetime_utc": null,
+            "visible_at": "2023-04-18T00:50:25Z",
+            "is_visible_override": "UNSET",
+            "tdc_pvo_id": 0,
+            "tdc_pv_id": 0,
+            "themes": [],
+            "domain_information": []
+        }
+    ],
+    "meta": {
+        "total": 86641,
+        "took": 21,
+        "page": 10,
+        "per_page": 2,
+        "geolocation": null
+    }
+}

@@ -63,6 +63,13 @@ class Vacancy(models.Model):
 
     def __str__(self):              
         return f"{self.company.name} - {self.position}"
+    
+class Event(models.Model):
+    data_event = models.CharField(max_length=200, null=True, blank=True)    
+    event_img = models.ImageField(null=True, blank=True, upload_to="images/")
+    event_name = models.CharField(max_length=200, null=True, blank=True)
+    event_data = models.CharField(max_length=200, null=True, blank=True)
+    event_url = models.CharField(max_length=200, null=True, blank=True)
 
 
 class Post(models.Model):
