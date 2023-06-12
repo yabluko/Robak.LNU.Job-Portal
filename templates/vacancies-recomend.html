@@ -102,15 +102,6 @@
                     Apply 
                 </a>
                 {% endif%}
-                {% if vacancy in favourites.vacancy.favourite.all %}
-                <a href="{% url 'favourite_add' vacancy.id %}" class="job__save">
-                    Unsave
-                </a>
-                {% else %}
-                <a href="{% url 'favourite_add' vacancy.id %}" class="job__save">
-                    Save
-                </a>
-                {% endif %} 
 
             </div>
             <div class="job__description">

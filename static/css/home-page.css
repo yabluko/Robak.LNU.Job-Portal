@@ -42,7 +42,8 @@ p{
 }
 
 .main__post__img{
-    width: 35px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     margin-right: 10px;
     border: 1px solid black;
@@ -134,8 +135,6 @@ p{
 }
 .sidebar-profile-info ul{
     margin: 20px 0 ;
-    /* height: 250px; */
-
 }
 
 .sidebar-profile-info img{
@@ -368,6 +367,16 @@ p{
 
 
 .post__profile__img{
-    width: 35px;
+    width: 40px;
+    height: 40px;
     border: 1px solid black;
+}
+
+.sort__by__button{
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+.sort__by__button:hover{
+    background-color: #d3d3d3;
 }

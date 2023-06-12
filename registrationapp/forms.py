@@ -50,8 +50,8 @@ class VacancyForm(forms.ModelForm):
 
 
 class Vacancy_Apply(forms.Form):
-    email = forms.EmailField(max_length=100)
-    number = forms.CharField(max_length=100)
+    name = forms.CharField(max_length=100)
+    email = forms.CharField(max_length=100)
     resume = forms.FileField()
 
 

@@ -8,83 +8,30 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/events-list.css' %}"> 
 </head>
 <div class="main__container">
-<h3>Your events</h3>
-<div class="top__content">
-    {% for event in events %}
-    <div class="slide"> 
-        <div class="top__img">
-            <img src="{{ event.event_img.url }}" alt="" class="top__img__path">
-        </div>  
-        <div class="top__text">
-            <span>{{ event.event_name }}</span>
-            <p>{{ event.event_data }}</p>
-            <a href="{{ event.event_url }}">
-                Event href
-            </a>
-        </div>
-    
-    </div>
-    {% endfor %}
-    
-</div>
+    <h3>Events for you</h3>
 
-<div class="midlle__content">
-    <div class="slide">
-        <div class="top__img">
-            <img src="" alt="">
-        </div>  
-        <div class="middle__text">
-            hello
+    <div class="top__slide">
+        {% for event in events %}
+        <div class="slide"> 
+            <div class="top__img">
+                <img src="{{ event.event_img }}" alt="" class="top__img__path">
+            </div>  
+            <div class="top__content">
+                <span>{{ event.event_name }}</span>
+                <p>{{ event.event_datatime }}</p>
+                <p>{{ event.event_type }}</p>
+                <div class="top__site__href">
+                    <a href="{{ event.event_url }}" class="top__href">
+                        View
+                    </a>
+                </div>
+            </div>
+        
         </div>
+        {% endfor %}
+        
     </div>
 
-    <div class="slide">
-        <div class="top__img">
-            <img src="" alt="">
-        </div>  
-        <div class="middle__text">
-            hello
-        </div>
-    </div>
-
-    <div class="slide">
-        <div class="top__img">
-            <img src="" alt="">
-        </div>  
-        <div class="middle__text">
-            hello
-        </div>
-    </div>
-
-</div>
-
-<div class="bottom__content">
-    <div class="slide">
-        <div class="top__img">
-            <img src="" alt="">
-        </div>  
-        <div class="bottom__text">
-            hello
-        </div>
-    </div>
-    <div class="slide">
-        <div class="top__img">
-            <img src="" alt="">
-        </div>  
-        <div class="bottom__text">
-            hello
-        </div>
-    </div>
-    <div class="slide">
-        <div class="top__img">
-            <img src="" alt="">
-        </div>  
-        <div class="bottom__text">
-            hello
-        </div>
-    </div>
-
-</div>
 
 </div>
 

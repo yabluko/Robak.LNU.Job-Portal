@@ -12,8 +12,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 from pathlib import Path
-# import warnings
-# warnings.filterwarnings("ignore", category=DeprecationWarning)
+import django_heroku
+import dj_database_url
+from decouple import config
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -33,11 +34,9 @@ ALLOWED_HOSTS = ['*']
 
 # settings.py
 
-# CSRF_TRUSTED_ORIGINS = ['https://linkedinclone.up.railway.app']
 
 # Application definition
 
-SITE_ID = 2
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -159,6 +158,7 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
@@ -182,3 +182,12 @@ LOGOUT_REDIRECT_URL = '/'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '435109422946-rd8u49pr2qtit0itk0lorptcndlrkcrh.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'linkedinclone1@gmail.com'
+EMAIL_HOST_PASSWORD = 'qjapztaowxyxsaik'
+EMAIL_USE_TLS = True
+
+django_heroku.settings(locals())

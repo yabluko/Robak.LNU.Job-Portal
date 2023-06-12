@@ -1,0 +1,47 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<br>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/people.css' %}"> 
+    
+</head>
+<div class="main__container">
+<div class="main__block">
+    <h3>People you may know</h3>
+    <ul class="main__ul">
+        {% for user in users %}
+        <li class="main__li">
+            <a href="{% url 'profile' user.id %}" class="main__li__href">
+                <div class="main__img">
+                    {% if user.profile.profile_image %}
+                        <img src="{{ user.profile.profile_image.url }}" class="main__profile__img" >
+                        {% else %}
+                        <img src="/static/img/person-circle.jpg" class="main__profile__img">
+                    {% endif %}
+                </div>
+                <div class="main__text">
+                    <h4>{{ user.username }}</h4>
+                    {% if user.profile.jobs != None %}
+                    <span>{{ user.profile.jobs }}</span>
+                    {% else %}
+                    {% endif %}
+                    <p>{{ user.profile.count_followers }} followers</p>
+                </div>
+
+            </a>
+
+        </li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+
+
+</div>
+
+{% endblock %}

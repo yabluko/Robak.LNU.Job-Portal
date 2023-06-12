@@ -6,10 +6,11 @@ from registrationapp.models import Profile, Post , Vacancy, Company, CompanyProf
 from .forms import PostForm, SignUpForm, ProfilePicForm, ProfileUserForm, VacancyForm, Vacancy_Apply
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
-import os
-import urllib.request
+from django.views.decorators.cache import cache_page
+from django.core.mail import send_mail
 from django.core.files import File
 import requests
+from django.template.loader import render_to_string
 # Create your views here.
 
 def main(request):
@@ -129,7 +130,7 @@ def update_user(request):
             user_form.save()
             profile_form_picture.save()
      
-            login(request, current_user)
+            login(request, current_user, backend='django.contrib.auth.backends.ModelBackend')
             messages.success(request, "Your profile has been be updated", extra_tags='message-success')
             return redirect('home')
 
@@ -140,29 +141,37 @@ def update_user(request):
 
 
 def vacancies(request):
-    # vacancy = Vacancy.objects.get(user__id=request.user.id)
-    profile = Profile.objects.get(user__id=request.user.id)
+    if request.user.is_authenticated:
+        if request.user.profile.skills == None:
+            profile = Profile.objects.get(user__id=request.user.id)
+            vacancy = Vacancy.objects.all()
+            return render(request, 'vacancies.html', {'vacancy': vacancy , 'profile': profile})    
+        else:
+            profile = Profile.objects.get(user__id=request.user.id)
+            vacancy = Vacancy.objects.filter(skills=profile.skills)
+            return render(request, 'vacancies.html', {'vacancy': vacancy , 'profile': profile})
 
-    vacancy = Vacancy.objects.filter(skills=profile.skills)
+    else:
+        messages.success(request, "Your must be log in!")
+        return redirect('main')    
     
-    return render(request, 'vacancies.html', {'vacancy': vacancy , 'profile': profile})
 
 def vacancies__creating(request):
+    template = render_to_string('email-template.html', {'name':request.user.profile.first_name})
     if request.user.is_authenticated:
         vacancy_form = Vacancy_Apply()
-        username = request.user.username
         if request.method == 'POST':
-            vacancy_form = Vacancy_Apply(request.POST, request.FILES)
+            vacancy_form = Vacancy_Apply(request.POST , request.FILES)
+            name = request.POST['name']
             email = request.POST['email']
-            number = request.POST['number']
-            # resume = request.FILES['resume']
-            # send_mail(
-            #     username, 
-            #     email,
-            #     ['linkedinclone1@gmail.com'], 
-            # )
+            resume = request.FILES['resume']
+            send_mail(
+                    name,
+                    template, 
+                'linkedinclone1@gmail.com', 
+                    [email],
+            )
             
-
             messages.success(request, ("Your apply was sended succeeded"), extra_tags='message-success')
             return redirect('vacancies')
     else:
@@ -178,7 +187,6 @@ def vacancies_recommended(request, vacancy_pk):
         vacancy_count = Vacancy.objects.filter(skills=profile.skills).count()
         vacancy = Vacancy.objects.get(id=vacancy_pk)
         company_profile = CompanyProfile.objects.get(company_id=vacancy.company.id)
-        # recomendation_algorithm(vacancies_all,vacancy)
     else:  
         return redirect('home')
     
@@ -235,37 +243,39 @@ def favourites_list(request):
         return render(request, 'favourites.html', {'new':new, 'profile':profile ,'count_new':count_new} )
 
 
+def people_list(request):
+    if request.user.is_authenticated:
+        profile = Profile.objects.get(user__id=request.user.id)
+        users = User.objects.all()
+        
+        return render(request, 'people.html' ,{'profile':profile, 'users': users})
+
+
+@cache_page(60 * 15)
 def events_list(request):
     profile = Profile.objects.get(user__id=request.user.id)
-    url = 'https://api.seatgeek.com/2/events?per_page=2&page=10&client_id=MzQxOTYyMjR8MTY4NjMzMjI3Mi42MDU4MTk1'
+    url = 'https://api.seatgeek.com/2/events?per_page=9&page=10&client_id=MzQxOTYyMjR8MTY4NjMzMjI3Mi42MDU4MTk1'
     response = requests.get(url)
     json_data = response.json()
-
 
     for event in json_data.get('events', []):
         event_id = event.get('id')
         event_name = event.get('performers', [{}])[0].get('name', '')
-        event_location = event.get('location', {}).get('name')
-        event_date = event.get('datetime_local')
+        event_datetime = event.get('datetime_local')
         event_image_url = event.get('performers', [{}])[0].get('image')
-        
-        if event_image_url:
-        
-            image_filename = f"event_{event_id}.jpg"
-            save_path = os.path.join("media/images/", image_filename)
+        event_href = event.get('venue').get('url')
+        event_type = event.get('type')
 
-            urllib.request.urlretrieve(event_image_url, save_path)
-            with open(save_path, 'rb') as f:
-            
-                event_img_file = File(f)
+        event_obj, created = Event.objects.get_or_create(event_id=event_id)
+        event_obj.event_name = event_name
+        event_obj.event_datatime = event_datetime
+        event_obj.event_url = event_href
+        event_obj.event_img = event_image_url
+        event_obj.event_type = event_type
+        event_obj.save()
 
-            
-                event_obj, created = Event.objects.get_or_create(data_event=event_id)
-                event_obj.event_img = save_path
-                event_obj.event_name = event_name
-                event_obj.event_data = event_date
-                event_obj.event_location = event_location
-                event_obj.save()
-                events = Event.objects.all()
+    events = Event.objects.all()
 
     return render(request, 'events-list.html',{'profile':profile,'events': events})
+
+
