@@ -12,9 +12,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 from pathlib import Path
-import django_heroku
-import dj_database_url
-from decouple import config
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -34,7 +31,7 @@ ALLOWED_HOSTS = ['*']
 
 # settings.py
 
-
+CSRF_TRUSTED_ORIGINS = ['https://linkedinclone.up.railway.app']
 # Application definition
 
 
@@ -112,9 +109,11 @@ WSGI_APPLICATION = 'job_portal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'JOB_DB',
-        'USER': 'yabko',
-        'PASSWORD': 'kek1234',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': '2OZFZziyY7wGDSF5f1Cl',
+        'HOST':'containers-us-west-134.railway.app',
+        'PORT': '6148',
     }
 }
 
@@ -190,4 +189,3 @@ EMAIL_HOST_USER = 'linkedinclone1@gmail.com'
 EMAIL_HOST_PASSWORD = 'qjapztaowxyxsaik'
 EMAIL_USE_TLS = True
 
-django_heroku.settings(locals())
