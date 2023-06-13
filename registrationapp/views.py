@@ -150,7 +150,6 @@ def vacancies(request):
             profile = Profile.objects.get(user__id=request.user.id)
             vacancy = Vacancy.objects.filter(skills=profile.skills)
             return render(request, 'vacancies.html', {'vacancy': vacancy , 'profile': profile})
-
     else:
         messages.success(request, "Your must be log in!")
         return redirect('main')    
@@ -158,6 +157,7 @@ def vacancies(request):
 
 def vacancies__creating(request):
     template = render_to_string('email-template.html', {'name':request.user.profile.first_name})
+    profile = Profile.objects.get(user__id=request.user.id)
     if request.user.is_authenticated:
         vacancy_form = Vacancy_Apply()
         if request.method == 'POST':
@@ -177,20 +177,29 @@ def vacancies__creating(request):
     else:
         messages.success(request, ("Your apply wasn't posted"), extra_tags='message-error')
         return redirect('vacancies')      
-    return render(request, 'vacancies-creation.html', {'vacancy_form': vacancy_form })
+    return render(request, 'vacancies-creation.html', {'vacancy_form': vacancy_form , 'profile': profile})
 
 
 def vacancies_recommended(request, vacancy_pk):
     if request.user.is_authenticated:
-        profile = Profile.objects.get(user__id=request.user.id)
-        vacancies_all = Vacancy.objects.filter(skills=profile.skills)
-        vacancy_count = Vacancy.objects.filter(skills=profile.skills).count()
-        vacancy = Vacancy.objects.get(id=vacancy_pk)
-        company_profile = CompanyProfile.objects.get(company_id=vacancy.company.id)
+        if request.user.profile.skills == None:
+
+            profile = Profile.objects.get(user__id=request.user.id)
+            vacancies_all = Vacancy.objects.all()
+            vacancy_count = vacancies_all.count()
+            vacancy = Vacancy.objects.get(id=vacancy_pk)
+            company_profile = CompanyProfile.objects.get(company_id=vacancy.company.id)
+            return render(request, 'vacancies-recomend.html', {'vacancy':vacancy , 'vacancies_all':vacancies_all, 'company_profile':company_profile, 'profile':profile ,'vacancy_count':vacancy_count})
+        else:
+
+            vacancies_all = Vacancy.objects.filter(skills=profile.skills)
+            vacancy_count = vacancies_all.count()
+            vacancy = Vacancy.objects.get(id=vacancy_pk)
+            company_profile = CompanyProfile.objects.get(company_id=vacancy.company.id)
+            return render(request, 'vacancies-recomend.html', {'vacancy':vacancy , 'vacancies_all':vacancies_all, 'company_profile':company_profile, 'profile':profile ,'vacancy_count':vacancy_count})
     else:  
         return redirect('home')
-    
-    return render(request, 'vacancies-recomend.html', {'vacancy':vacancy , 'vacancies_all':vacancies_all, 'company_profile':company_profile, 'profile':profile ,'vacancy_count':vacancy_count})
+
 
 def searched_vacancies(request):
     if request.method == 'POST':

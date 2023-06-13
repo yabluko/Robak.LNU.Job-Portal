@@ -52,7 +52,14 @@ class VacancyForm(forms.ModelForm):
 class Vacancy_Apply(forms.Form):
     name = forms.CharField(max_length=100)
     email = forms.CharField(max_length=100)
-    resume = forms.FileField()
+    body = forms.CharField(required=True,
+        widget=forms.widgets.Textarea(
+            attrs={
+            "placeholder":"Enter your post ",
+            }
+        ),                   
+        label="",
+    )
 
 
 class SignUpForm(UserCreationForm):

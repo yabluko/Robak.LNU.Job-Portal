@@ -58,13 +58,12 @@ body{
 
 .main__form{
     width: 384px;
-    height: 552px;
+    height: 360px;
     padding: 24px;
     background-color: #ffff;
     border-radius: 5px;
-    margin: 0 auto;
+    margin: 30px auto;
     display: flex;
-    
     align-items: center;
     flex-direction: column;
     
@@ -120,6 +119,14 @@ input[type="text"]{
 .registration__form__button:hover{
     background-color:#004182 ;
 }
+
+.navbar__profile__img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
 
 .message-success{
     background-color: #ccebd2;
