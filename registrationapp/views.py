@@ -191,7 +191,7 @@ def vacancies_recommended(request, vacancy_pk):
             company_profile = CompanyProfile.objects.get(company_id=vacancy.company.id)
             return render(request, 'vacancies-recomend.html', {'vacancy':vacancy , 'vacancies_all':vacancies_all, 'company_profile':company_profile, 'profile':profile ,'vacancy_count':vacancy_count})
         else:
-
+            profile = Profile.objects.get(user__id=request.user.id)
             vacancies_all = Vacancy.objects.filter(skills=profile.skills)
             vacancy_count = vacancies_all.count()
             vacancy = Vacancy.objects.get(id=vacancy_pk)
@@ -259,13 +259,14 @@ def people_list(request):
         
         return render(request, 'people.html' ,{'profile':profile, 'users': users})
 
-
+@cache_page(60 * 30)
 def events_list(request):
     profile = Profile.objects.get(user__id=request.user.id)
     url = 'https://api.seatgeek.com/2/events?per_page=9&page=10&client_id=MzQxOTYyMjR8MTY4NjMzMjI3Mi42MDU4MTk1'
     response = requests.get(url)
     json_data = response.json()
 
+    events = []
     for event in json_data.get('events', []):
         event_id = event.get('id')
         event_name = event.get('performers', [{}])[0].get('name', '')
@@ -274,15 +275,17 @@ def events_list(request):
         event_href = event.get('venue').get('url')
         event_type = event.get('type')
 
-        event_obj, created = Event.objects.get_or_create(event_id=event_id)
-        event_obj.event_name = event_name
-        event_obj.event_datatime = event_datetime
-        event_obj.event_url = event_href
-        event_obj.event_img = event_image_url
-        event_obj.event_type = event_type
-        event_obj.save()
+        event_data = {
+                'event_id': event_id,
+                'event_name': event_name,
+                'event_datetime': event_datetime,
+                'event_url': event_href,
+                'event_img': event_image_url,
+                'event_type': event_type,
+            }
 
-    events = Event.objects.all()
+        events.append(event_data)
+    
 
     return render(request, 'events-list.html',{'profile':profile,'events': events})
 

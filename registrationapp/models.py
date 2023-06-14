@@ -73,7 +73,7 @@ class Event(models.Model):
     event_type = models.CharField(max_length=200, null=True, blank=True)    
     event_img = models.ImageField(null=True, blank=True, upload_to="images/")
     event_name = models.CharField(max_length=200, null=True, blank=True)
-    event_datatime = models.CharField(max_length=200, null=True, blank=True)
+    event_datetime = models.CharField(max_length=200, null=True, blank=True)
     event_url = models.CharField(max_length=200, null=True, blank=True)
 
 
