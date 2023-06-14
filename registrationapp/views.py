@@ -260,7 +260,6 @@ def people_list(request):
         return render(request, 'people.html' ,{'profile':profile, 'users': users})
 
 
-@cache_page(60 * 15)
 def events_list(request):
     profile = Profile.objects.get(user__id=request.user.id)
     url = 'https://api.seatgeek.com/2/events?per_page=9&page=10&client_id=MzQxOTYyMjR8MTY4NjMzMjI3Mi42MDU4MTk1'

@@ -30,8 +30,6 @@ class Profile(models.Model):
         return self.user.username 
     
 
-
-    
 class Company(models.Model):
     name = models.CharField(max_length=200, null=True, blank=False)
     logo = models.ImageField(null=True, blank=True, upload_to="images/")

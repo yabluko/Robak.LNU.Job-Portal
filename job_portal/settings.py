@@ -111,9 +111,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': '2OZFZziyY7wGDSF5f1Cl',
-        'HOST':'containers-us-west-134.railway.app',
-        'PORT': '6148',
+        'PASSWORD': 'XXYyFsOUTuuPbODBAnCN',
+        'HOST':'containers-us-west-6.railway.app', 
+        'PORT': '7262',
     }
 }
 
@@ -164,8 +164,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Creating picture for profile 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/' 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # STATICFILES_DIRS = [BASE_DIR / "static", ]
 # Default primary key field type
