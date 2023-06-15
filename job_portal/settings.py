@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 from pathlib import Path
+from decouple import config
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,7 +29,7 @@ SECRET_KEY = 'django-insecure-fo=z&_%xtr3y8)w9520m93oiq($h-w*vjp*!x5*31ade(m-)jk
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+SITE_ID = 2
 # settings.py
 
 CSRF_TRUSTED_ORIGINS = ['https://linkedinclone.up.railway.app']
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'social_django',
     'drf_yasg',
+    'rest_framework',
 ]
 
 AUTHENTICATION_BACKENDS = [
@@ -108,12 +110,12 @@ WSGI_APPLICATION = 'job_portal.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'XXYyFsOUTuuPbODBAnCN',
-        'HOST':'containers-us-west-6.railway.app', 
-        'PORT': '7262',
+       'ENGINE': config('DB_ENGINE'),
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     }
 }
 
@@ -179,14 +181,12 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/home'
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = '/'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = config('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = config('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '435109422946-rd8u49pr2qtit0itk0lorptcndlrkcrh.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
-
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'linkedinclone1@gmail.com'
-EMAIL_HOST_PASSWORD = 'qjapztaowxyxsaik'
-EMAIL_USE_TLS = True
-
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')

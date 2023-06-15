@@ -86,7 +86,11 @@
         </div>
         <div class="main__profile__posts">
             <div class="main__posts__text">
+                {% if request.user.profile.id == profile.id %}
                 Your Posts
+                {% else %}
+                Posts 
+                {% endif %}
             </div>
             <div class="main__posts">
                 

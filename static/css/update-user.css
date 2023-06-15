@@ -44,7 +44,7 @@ p{
 
 .main__form{
     width: 400px;
-    height: 580px;
+    height: 450px;
     margin: 0 auto;
     background-color: #fff;
     border-radius: 5px;
@@ -70,6 +70,7 @@ input[type="password"]{
 
 input[type="text"]{
     padding-left: 8px;
+    font-size: 14px;
 }
 
 .registration__form__button{
@@ -120,18 +121,19 @@ input[type="text"]{
 
 .main__form label{
     font-size: 16px;
-    margin: 5px 0px 0px 5px ;
-    font-size: 14px;
+    margin: 10px 0px 0px 10px ;
+    /* font-size: 14px; */
 }
 
 .main__form p{
-    margin-bottom: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
 }
 
-.form-text-li{
+/* .form-text-li{
     font-size: 10px;
     font-weight: 300;
-}
+} */
 
 
 .change-title{

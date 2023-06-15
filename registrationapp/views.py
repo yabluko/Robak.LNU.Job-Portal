@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect , get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout 
 from django.urls import reverse
+from registrationapp.serializers import VacancySerializer 
 from registrationapp.models import Profile, Post , Vacancy, Company, CompanyProfile, Event
 from .forms import PostForm, SignUpForm, ProfilePicForm, ProfileUserForm, VacancyForm, Vacancy_Apply
 from django.contrib.auth.models import User
@@ -11,7 +12,10 @@ from django.core.mail import send_mail
 from django.core.files import File
 import requests
 from django.template.loader import render_to_string
+from drf_yasg.utils import swagger_auto_schema
+from rest_framework.decorators import api_view
 # Create your views here.
+
 
 def main(request):
     if request.method == 'POST':
@@ -77,7 +81,7 @@ def profile(request, pk):
             action = request.POST['follow']
             if action == 'unfollow':
                 current_user_profile.follows.remove(profile)
-            elif action == 'follow':
+            elif action == 'follow':    
                 current_user_profile.follows.add(profile)
             current_user_profile.save()            
 
@@ -139,10 +143,11 @@ def update_user(request):
         messages.success(request, "Your must be log in!")
         return redirect('main')
 
-
+@api_view(['GET'])
+@swagger_auto_schema(responses={200:VacancySerializer})
 def vacancies(request):
     if request.user.is_authenticated:
-        if request.user.profile.skills == None:
+        if request.user.profile.skills == None: 
             profile = Profile.objects.get(user__id=request.user.id)
             vacancy = Vacancy.objects.all()
             return render(request, 'vacancies.html', {'vacancy': vacancy , 'profile': profile})    
@@ -164,7 +169,6 @@ def vacancies__creating(request):
             vacancy_form = Vacancy_Apply(request.POST , request.FILES)
             name = request.POST['name']
             email = request.POST['email']
-            resume = request.FILES['resume']
             send_mail(
                     name,
                     template, 
@@ -288,5 +292,4 @@ def events_list(request):
     
 
     return render(request, 'events-list.html',{'profile':profile,'events': events})
-
 

@@ -1,0 +1,16 @@
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '435109422946-rd8u49pr2qtit0itk0lorptcndlrkcrh.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'linkedinclone1@gmail.com'
+EMAIL_HOST_PASSWORD = 'qjapztaowxyxsaik'
+EMAIL_USE_TLS = True
+
+DB_ENGINE=django.db.backends.postgresql
+DB_NAME=railway
+DB_USER=postgres
+DB_PASSWORD=XXYyFsOUTuuPbODBAnCN
+DB_HOST=containers-us-west-6.railway.app
+DB_PORT=7262

@@ -55,7 +55,7 @@ class Vacancy_Apply(forms.Form):
     body = forms.CharField(required=True,
         widget=forms.widgets.Textarea(
             attrs={
-            "placeholder":"Enter your post ",
+            "placeholder":"Tell us why we should choose you",
             }
         ),                   
         label="",

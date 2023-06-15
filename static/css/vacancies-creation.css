@@ -58,7 +58,7 @@ body{
 
 .main__form{
     width: 384px;
-    height: 360px;
+    height: 380px;
     padding: 24px;
     background-color: #ffff;
     border-radius: 5px;
@@ -92,7 +92,6 @@ body{
 }
 
 .registration__form__button{
-    margin: 20px 0px 0px 0px ;
     border-radius: 24px;
     width: 336px;
     height: 48px;
@@ -125,6 +124,14 @@ input[type="text"]{
     height: 35px;
     border-radius: 50%;
     border: 1px solid black;
+}
+
+#id_body{
+    width: 336px;
+    height: 90px;
+    font-size: 14px;
+    font-family: 'AvenirNext', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 10px 0px 10px 0px ;
 }
 
 

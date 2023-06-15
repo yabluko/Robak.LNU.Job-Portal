@@ -25,7 +25,6 @@ class Profile(models.Model):
         followers = self.followed_by.all()
         return followers.count()
 
-
     def __str__(self):
         return self.user.username 
     
