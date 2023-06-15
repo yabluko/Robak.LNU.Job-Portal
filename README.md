@@ -90,9 +90,9 @@ After installation and configuration to run my application you just need in term
  
  #### 5. Algorithms
  
- 1)Reccomend a post with vacancies by their job whicch they indicate in profile - ❌ 
+ 1)Reccomend a post with vacancies by their job whicch they indicate in profile - ✅
  
- 2)Search of vacancies - ❌ 
+ 2)Search of vacancies - ✅
  
 # Description:
 
