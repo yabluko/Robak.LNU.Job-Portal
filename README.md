@@ -7,11 +7,11 @@ This is django project clone of LinkedIn.In this web-application you can create 
 
 [PostgreSQL](https://www.postgresql.org/) - Django supports various databases, including PostgreSQL, MySQL, and SQLite.
 
-HTML, CSS та JavaScript - Django can generate HTML pages for web applications, but you can use CSS and JavaScript for visual design and adding dynamics.
+HTML, CSS and JavaScript - Django can generate HTML pages for web applications, but you can use CSS and JavaScript for visual design and adding dynamics.
 
 [Railway](https://railway.app/) - is a cloud-based web application deployment platform that allows developers to quickly and easily deploy their projects without the need to manage infrastructure and configure servers.
 
-[REST Framework (DRF)](https://www.django-rest-framework.org)- is a library for developing web applications using Django that makes it easy to create APIs (application programming interfaces) based on the REST architecture
+[Seetgeek Api](https://platform.seatgeek.com/)- This is  a platform that provides access to live event data, including concerts, sports events, theater shows, and more.
 
 
 # Installation and Configuration 🛠️ 
