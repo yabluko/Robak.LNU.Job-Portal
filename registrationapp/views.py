@@ -144,7 +144,7 @@ def update_user(request):
         return redirect('main')
 
 @api_view(['GET'])
-@swagger_auto_schema(responses={200:VacancySerializer})
+# @swagger_auto_schema(responses={200:VacancySerializer})
 def vacancies(request):
     if request.user.is_authenticated:
         if request.user.profile.skills == None: 

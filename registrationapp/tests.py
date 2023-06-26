@@ -5,16 +5,15 @@ from registrationapp.models import Company, User
 
 # Create your tests here.
 
-# class TestUrls(TestCase):
+class TestUrls(TestCase):
     # Перевіряємо чи доступна сторінка чи ні 
-        # def test_homepage_url(self):
-        #     response = self.client.get(reverse('main'))
-        #     self.assertEqual(response.status_code, 200)
+        def test_homepage_url(self):
+            response = self.client.get(reverse('main'))
+            self.assertEqual(response.status_code, 200)
 
         # @classmethod
         # def setUpClass(cls):
         #     super().setUpClass()
-        #     # Підготовка тестових даних
         #     Company.objects.create(name='Test Company', employee='John Doe')
 
         # def test_name_field(self):

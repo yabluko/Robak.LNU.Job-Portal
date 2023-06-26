@@ -73,7 +73,7 @@ ul{
 
 }
 
-#leftside__li__wrapper {
+.leftside__li__wrapper {
     cursor: pointer;
     display: flex;
     border-bottom: 1px solid rgba(0,0,0,0.12);
@@ -212,6 +212,6 @@ ul{
     background-color: #0073b138;
 }
 
-#leftside__li__wrapper:hover {
+/* #leftside__li__wrapper:hover {
     background-color: #0073b138;
-}
+} */
